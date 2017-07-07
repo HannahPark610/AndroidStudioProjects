@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewA"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-medium"
+        android:gravity="center_horizontal"
+        android:padding="16dp"
+        android:text="TEAM A"
+        android:textColor="#616161"
+        android:textSize="14sp" />
+
+    <TextView
+        android:id="@+id/textViewScore"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center_horizontal"
+        android:paddingBottom="24dp"
+        android:text="0"
+        android:textColor="#000000"
+        android:textSize="56sp" />
+
+    <Button
+        android:id="@+id/buttonA"
+        android:layout_width="190dp"
+        android:layout_height="wrap_content"
+        android:text="Button" />
+
+
+</LinearLayout>
