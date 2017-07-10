@@ -15,6 +15,34 @@
         android:textColor="#616161"
         android:textSize="14sp" />
 
+</LinearLayout>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+    <TextView
+        android:id="@+id/textViewB"
+        android:layout_width="190dp"
+        android:fontFamily="sans-serif-medium"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:text="TEAM B"
+        android:textColor="#616161"
+        android:textSize="14sp"  />
+
+    </LinearLayout>
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+<TableRow
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
     <TextView
         android:id="@+id/textViewScore"
         android:layout_width="190dp"
@@ -26,26 +54,33 @@
         android:textColor="#000000"
         android:textSize="56sp" />
 
+</TableRow>
+
     <Button
         android:id="@+id/buttonA"
-        android:layout_width="190dp"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Button" />
-
-<<<<<<< HEAD
-    <Button
-        android:id="@+id/button"
-        android:layout_width="190dp"
-        android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="+3 POINT"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"/>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="190dp"
+        android:id="@+id/buttonB"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:text="+2 POINT"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp" />
 
-=======
->>>>>>> origin/master
+    <Button
+        android:id="@+id/buttonC"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:text="FREE THROW"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp" />
 
-</LinearLayout>
+</TableLayout>
