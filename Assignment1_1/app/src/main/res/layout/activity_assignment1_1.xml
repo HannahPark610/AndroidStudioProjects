@@ -125,7 +125,7 @@
                 android:text="FREE THROW" />
 
             <Button
-                android:id="@+id/buttonC_1"
+                android:id="@+id/buttonB1"
                 android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="8dp"
