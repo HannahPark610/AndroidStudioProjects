@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="Vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/LinerLayout"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:layout_weight="0.40"
+        android:text="LinerLayout"
+        android:gravity="center"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif-medium"
+        android:background="#B2EBF2"/>
+
+        <TextView
+            android:id="@+id/RelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_weight="0.40"
+            android:text="RelativeLayout"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#80DEEA"/>
+
+        <TextView
+            android:id="@+id/TableLayout"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_weight="0.40"
+            android:text="TableLayout"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#4DD0E1"/>
+
+        <TextView
+            android:id="@+id/FrameLayout"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_weight="0.40"
+            android:text="FrameLayout"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#26C6DA"/>
+
+        <TextView
+            android:id="@+id/ListView"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_weight="0.40"
+            android:text="ListView"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#00BCD4"/>
+
+        <TextView
+            android:id="@+id/GridView"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_weight="0.40"
+            android:text="GridView"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#00ACC1"/>
+
+        <TextView
+            android:id="@+id/RecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="81dp"
+            android:layout_weight="0.40"
+            android:text="RecyclerView"
+            android:gravity="center"
+            android:textSize="14sp"
+            android:fontFamily="sans-serif-medium"
+            android:background="#0097A7"/>
+
+
+
+    </LinearLayout>
+
+
+    </LinearLayout>
