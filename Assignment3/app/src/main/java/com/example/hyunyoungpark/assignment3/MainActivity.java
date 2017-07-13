@@ -1,52 +1,62 @@
 package com.example.hyunyoungpark.assignment3;
 
+import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.ContextMenu;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
+        TextView tv;
+        @Override
+        protected void onCreate(Bundle savedInstanceState) {
+            super.onCreate(savedInstanceState);
+            setContentView(R.layout.context_menu_example);
+            tv = (TextView)findViewById(R.id.tv_context);
+            registerForContextMenu(tv);
+        }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+        Drawable num_icon = getResources().getDrawable(R.drawable.ic_face);
+        menu.add("Face").setIcon(num_icon);  //setShowAsAction(1);
+        menu.add("Favorite").setIcon(R.drawable.ic_favorite);
+        menu.add("Star").setIcon(R.drawable.ic_grade);
+
+
         return true;
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        @Override
+        public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
+            super.onCreateContextMenu(menu, v, menuInfo);
+            MenuInflater mi = getMenuInflater();
+            mi.inflate(R.menu.menu_main,menu);
         }
 
-        return super.onOptionsItemSelected(item);
-    }
+        @Override
+        public boolean onContextItemSelected(MenuItem item) {
+            switch (item.getItemId()) {
+
+                case (R.id.menu_face):
+                    Toast.makeText(this,"Face is clicked", Toast.LENGTH_SHORT).show();
+                    break;
+                case (R.id.menu_favorite):
+                    Toast.makeText(this,"Favorite is clicked", Toast.LENGTH_SHORT).show();
+                    break;
+                case(R.id.menu_grade):
+                    Toast.makeText(this,"Grade is clicked", Toast.LENGTH_SHORT).show();
+                    break;
+                case(R.id.menu_pan_tool):
+                    Toast.makeText(this,"Pan is clicked", Toast.LENGTH_SHORT).show();
+                    break;
+            }
+            return super.onOptionsItemSelected(item);
+        }
 }
