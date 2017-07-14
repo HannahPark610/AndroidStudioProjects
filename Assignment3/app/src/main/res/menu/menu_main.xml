@@ -2,35 +2,5 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/menu_face"
-        android:icon="@drawable/ic_face"
-        android:title="Bookmark"
-        app:showAsAction="ifRoom|withText"/>
-
-    <item android:id="@+id/menu_favorite"
-        android:icon="@drawable/ic_favorite"
-        android:title="Save"
-        app:showAsAction="ifRoom|withText"/>
-
-    <item android:id="@+id/menu_grade"
-        android:icon="@drawable/ic_grade"
-        android:title="Search"
-        app:showAsAction="ifRoom|withText"
-        />
-
-    <item android:id="@+id/menu_pan_tool"
-        android:icon="@drawable/ic_pan_tool"
-        android:title="Share"
-        app:showAsAction="ifRoom|withText"/>
-
-    <item android:id="@+id/menu_pets"
-        android:icon="@drawable/ic_pets"
-        android:title="Delete"
-        app:showAsAction="ifRoom|withText"/>
-
-    <item android:id="@+id/menu_thumb_up"
-        android:icon="@drawable/ic_thumb_up"
-        android:title="Preferences"
-        app:showAsAction="ifRoom|withText"/>
 
 </menu>

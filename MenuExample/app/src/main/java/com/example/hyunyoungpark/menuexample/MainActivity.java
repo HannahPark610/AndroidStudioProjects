@@ -33,16 +33,16 @@ public class MainActivity extends AppCompatActivity {
 
         switch (item.getItemId()) {
 
-            case (R.id.action_settings):
+            case (R.id.menu_bookmark):
             Toast.makeText(this,"setting is clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case (R.id.Search):
+            case (R.id.menu_save):
             Toast.makeText(this,"Search is clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case(R.id.Help):
+            case(R.id.menu_search):
             Toast.makeText(this,"Help is clicked", Toast.LENGTH_SHORT).show();
                 break;
-            case(R.id.About):
+            case(R.id.menu_share):
             Toast.makeText(this,"About is clicked", Toast.LENGTH_SHORT).show();
                 break;
         }
