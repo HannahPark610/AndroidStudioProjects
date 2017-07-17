@@ -10,5 +10,6 @@
         android:divider="#ffcc22"
         android:dividerHeight="1.5dp"
         android:choiceMode="singleChoice"
+        android:onClick="sendMessage"
         />
 </LinearLayout>

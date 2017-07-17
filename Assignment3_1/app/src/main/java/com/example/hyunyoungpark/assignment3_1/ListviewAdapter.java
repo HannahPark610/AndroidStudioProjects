@@ -22,23 +22,29 @@ public class ListviewAdapter extends BaseAdapter {
     }
 
     @Override
-    public int getCount(){return data.size();}
+    public int getCount() {
+        return data.size();
+    }
 
     @Override
-    public String getItem(int position){return data.get(position).getName();}
+    public String getItem(int position) {
+        return data.get(position).getName();
+    }
 
     @Override
-    public long getItemId(int position){return position;}
+    public long getItemId(int position) {
+        return position;
+    }
 
     @Override
-    public View getView(int position, View convertView, ViewGroup parent){
+    public View getView(int position, View convertView, ViewGroup parent) {
         if(convertView==null){
             convertView=inflater.inflate(layout,parent,false);
         }
 
         Listviewitem listviewitem=data.get(position);
 
-        ImageView icon=(ImageView)convertView.findViewById(R.id.imageview);
+        ImageView icon=(ImageView) convertView.findViewById(R.id.imageview);
         icon.setImageResource(listviewitem.getIcon());
 
         TextView name=(TextView)convertView.findViewById(R.id.textview);
