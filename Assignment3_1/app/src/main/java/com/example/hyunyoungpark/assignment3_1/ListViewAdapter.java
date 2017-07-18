@@ -7,18 +7,19 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import java.util.ArrayList;
 
-public class ListviewAdapter extends BaseAdapter {
+public class ListViewAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
-    private ArrayList<Listviewitem> data;
+    private ArrayList<ListViewItem> data;
     private int layout;
 
-    public ListviewAdapter(Context context, int layout, ArrayList<Listviewitem> data){
-        this.inflater=(LayoutInflater)context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        this.data=data;
-        this.layout=layout;
+    public ListViewAdapter(Context context, int layout, ArrayList<ListViewItem> data) {
+        this.inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        this.data = data;
+        this.layout = layout;
     }
 
     @Override
@@ -41,16 +42,16 @@ public class ListviewAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if(convertView==null){
-            convertView=inflater.inflate(layout,parent,false);
+        if (convertView == null) {
+            convertView = inflater.inflate(layout, parent, false);
         }
 
-        Listviewitem listviewitem=data.get(position);
+        ListViewItem listviewitem = data.get(position);
 
-        ImageView icon=(ImageView) convertView.findViewById(R.id.imageview);
+        ImageView icon = (ImageView) convertView.findViewById(R.id.imageview);
         icon.setImageResource(listviewitem.getIcon());
 
-        TextView name=(TextView)convertView.findViewById(R.id.textview);
+        TextView name = (TextView) convertView.findViewById(R.id.textview);
         name.setText(listviewitem.getName());
 
         return convertView;

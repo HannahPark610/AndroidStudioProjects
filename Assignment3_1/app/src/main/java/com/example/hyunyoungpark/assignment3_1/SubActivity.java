@@ -17,6 +17,7 @@ public class SubActivity extends Activity {
     }
 
     public void clicked1 (View v1) {
+
         finish();
     }
 }
