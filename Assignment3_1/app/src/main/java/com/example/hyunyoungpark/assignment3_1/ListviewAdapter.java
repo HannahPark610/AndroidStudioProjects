@@ -23,16 +23,19 @@ public class ListviewAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
+
         return data.size();
     }
 
     @Override
     public String getItem(int position) {
+
         return data.get(position).getName();
     }
 
     @Override
     public long getItemId(int position) {
+
         return position;
     }
 
