@@ -10,9 +10,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-/**
- * Created by CICCC-CIRAC on 2017-07-11.
- */
 
 public class MobileArrayAdapter extends ArrayAdapter<String> {
 

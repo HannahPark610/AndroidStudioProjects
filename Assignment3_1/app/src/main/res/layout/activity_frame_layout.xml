@@ -6,10 +6,10 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/Title"
+        android:id="@+id/frametextID"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Linear Layout"
+        android:text="Frame Layout"
         android:textSize="10pt"
         android:textStyle="bold"
         android:gravity="center"/>
@@ -26,10 +26,11 @@
         android:layout_width="356dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:text="LinearLayout is a view group that aligns all children in a single direction, vertically or horizontally. You can specify the layout direction with the android:orientation attribute.
-All children of a LinearLayout are stacked one after the other, so a vertical list will only have one child per row, no matter how wide they are, and a horizontal list will only be one row high (the height of the tallest child, plus
-
-padding)." />
+        android:text="LFrameLayout is designed to block out an area on the screen to display a single item. Generally,
+        FrameLayout should be used to hold a single child view, because it can be difficult to organize child views in
+        a way that's scalable to different screen sizes without the children overlapping each other. You can, however,
+        add multiple children to a FrameLayout and control their position within the FrameLayout by assigning gravity to
+        each child, using the android:layout_gravity attribute." />
 
     <LinearLayout
         android:layout_width="match_parent"
