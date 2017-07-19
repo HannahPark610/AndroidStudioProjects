@@ -60,8 +60,7 @@ public class GreenAdapter extends RecyclerView.Adapter<GreenAdapter.NumberViewHo
     }
 
 
-    class NumberViewHolder extends RecyclerView.ViewHolder
-            implements View.onClickListener {
+    class NumberViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
 
         TextView listItemNumberView;

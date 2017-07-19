@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
+import static com.example.hyunyoungpark.action.R.layout.activity_main;
+
 public class MainActivity extends AppCompatActivity
         implements GreenAdapter.ListItemClickListener {
 
@@ -19,8 +21,8 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        rv = (RecyclerView) findViewById(R.id.rv_numbers);
+        setContentView(activity_main);
+        rv = (RecyclerView) findViewById(R.id.rv1);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         rv.setLayoutManager(layoutManager);
         rv.setHasFixedSize(true);
