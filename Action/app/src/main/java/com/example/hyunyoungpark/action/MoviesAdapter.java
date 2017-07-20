@@ -5,6 +5,9 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AlphaAnimation;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import java.util.List;
@@ -17,9 +20,25 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     private List<Movie> movie_list;
     private static int viewHolderCount;
 
+    int lastPosition = -1;
+
 
     public MoviesAdapter(List<Movie> movie_list) {
+
         this.movie_list = movie_list;
+    }
+
+    private void setAnimation(View view, int position) {
+        Context c = view.getContext(); if(position > lastPosition)
+        {
+            Animation animation = AnimationUtils.loadAnimation(c,android.R.anim.slide_in_left);
+            view.startAnimation(animation);
+            lastPosition = position; }
+    }
+
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f); anim.setDuration(1000);
+        view.startAnimation(anim);
     }
 
     @Override
@@ -29,7 +48,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         LayoutInflater inflater = LayoutInflater.from(context);
 
         boolean shouldAttachToParentImmediately = false;
-        // View view =inflater.from(context).inflate(R.layout.number_list_item,shouldAttachToParentImmediately);
         View view;
         view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediately);
         MyViewHolder viewHolder = new MyViewHolder(view);
@@ -37,14 +55,18 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     }
 
+    //바인드뷰홀더란 : 재활용 되는 뷰가 호출하여 실행되는 메소드, 뷰 홀더를 전달하고 어댑터는 position 의 데이터를 결합시킵니다
     @Override
     public void onBindViewHolder(MyViewHolder holder, int position) {
 
         Movie movie = movie_list.get(position);
 
         holder.listMovieView1.setText(movie.getTitle());
-        holder.listMovieView2.setText(movie.getTitle());
-        holder.listMovieView3.setText(movie.getTitle());
+        holder.listMovieView2.setText(movie.getGenre());
+        holder.listMovieView3.setText(movie.getYear());
+
+        setAnimation(holder.itemView, position);
+        setFadeAnimation (holder.itemView);
 
     }
 
