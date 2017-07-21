@@ -15,18 +15,21 @@
         android:id="@+id/clearButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="clearAll"
         android:text="Clear All" />
 
     <Button
         android:id="@+id/selectButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="selectAll"
         android:text="Select All" />
 
     <Button
         android:id="@+id/deleteButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:onClick="deleteMovie"
         android:text="Delete" />
 
         </LinearLayout>

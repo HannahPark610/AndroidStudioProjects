@@ -10,7 +10,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#0277BD"
+        android:background="#00ACC1"
         android:padding="5dp">
 
         <TextView
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="2"
             android:text="List of Restaurant(0)"
-            android:textColor="#66CCFF"
+            android:textColor="#F5F5F5"
             android:textSize="20dp"
             android:textStyle="bold" />
 

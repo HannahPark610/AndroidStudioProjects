@@ -1,15 +1,15 @@
 package com.example.hyunyoungpark.action;
 
+import java.io.Serializable;
 import java.util.List;
 
 
-public class Movie {
+public class Movie implements Serializable {
 
     private final String title;
     private final String genre;
     private final String year;
-
-
+    private boolean isSelected = false;
 
 
     public Movie(String title, String genre, String year) {
@@ -35,4 +35,11 @@ public class Movie {
     }
 
 
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
 }

@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.CheckBox;
 
 import java.util.ArrayList;
@@ -18,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Movie> movieList = new ArrayList<>();
     private RecyclerView recyclerView;
     private MoviesAdapter mAdapter;
-
+    private int[] selectedMovies;
 
 
     @Override
@@ -26,11 +27,10 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        CheckBox checkBox = (CheckBox) findViewById(R.id.checkBox) ;
-
         recyclerView = (RecyclerView) findViewById(R.id.recycleview);
+        recyclerView.setHasFixedSize(true);
         mAdapter = new MoviesAdapter(movieList);
+        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
         recyclerView.setLayoutManager(mLayoutManager);
         recyclerView.setAdapter(mAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
@@ -90,5 +90,31 @@ public class MainActivity extends AppCompatActivity {
         movieList.add(movie);
         movie = new Movie("Toy Story", "Animation, Buddy-Comedy", "2010");
         movieList.add(movie);
+
+        mAdapter.notifyDataSetChanged();
     }
-}
+
+    public void selectAll(View view) {
+        for (Movie m : movieList) {
+            m.setSelected(true);
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void clearAll(View view) {
+        for (Movie m : movieList) {
+            m.setSelected(false);
+            mAdapter.notifyDataSetChanged();
+        }
+    }
+
+    public void deleteMovie(View view) {
+         for (int i=0;i<movieList.size();i++) {
+         if(movieList.get(i).isSelected()) { movieList.remove(i);
+           }
+
+         }
+            mAdapter.notifyDataSetChanged();
+        }
+
+    }
