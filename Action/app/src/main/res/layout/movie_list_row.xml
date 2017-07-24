@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="10dp">
+
+<android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/cv"
@@ -9,35 +15,52 @@
     card_view:cardCornerRadius="20dp">
 
     <LinearLayout
-        android:orientation="vertical"
-        android:layout_width="364dp"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
     <CheckBox
         android:id="@+id/checkBox"
-        android:layout_width="112dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="right"
-        android:checked="false"/>
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/movie_image"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:scaleType="fitCenter" />
 
     <TextView
         android:id="@+id/text1"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="10dp"
         android:textSize="15pt"
-        android:text="Movie1"/>
+        android:textStyle="bold"
+        android:gravity="center" />
 
     <TextView
         android:id="@+id/text2"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:textSize="10pt"
-        android:text="Movie2"/>
+        android:gravity="center"/>
+
     <TextView
         android:id="@+id/text3"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textSize="20pt"
-        android:text="Movie3"/>
+        android:layout_height="wrap_content"
+        android:textSize="8pt"
+        android:gravity="center"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+ </android.support.v7.widget.CardView>
+
 </LinearLayout>
-</android.support.v7.widget.CardView>

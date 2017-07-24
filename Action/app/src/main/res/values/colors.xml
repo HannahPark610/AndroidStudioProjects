@@ -21,4 +21,6 @@
     <color name="material800Green">#2E7D32</color>
     <color name="material850Green">#256E29</color>
     <color name="material900Green">#1B5E20</color>
+    <color name="colorHighLight">#FF4081</color>
+    <color name="navigation_drawer_background">#303F9F</color>
 </resources>

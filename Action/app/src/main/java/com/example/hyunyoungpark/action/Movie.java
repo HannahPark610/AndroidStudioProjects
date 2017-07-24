@@ -1,22 +1,27 @@
 package com.example.hyunyoungpark.action;
 
 import java.io.Serializable;
-import java.util.List;
 
 
 public class Movie implements Serializable {
 
-    private final String title;
-    private final String genre;
-    private final String year;
-    private boolean isSelected = false;
+    private String title;
+    private String genre;
+    private String year;
+    private int thumbnail;
+    private boolean isSelected;
 
-
-    public Movie(String title, String genre, String year) {
+    public Movie(String title, String genre, String year, int thumbnail) {
 
         this.title = title;
         this.genre = genre;
         this.year = year;
+        this.thumbnail = thumbnail;
+        this.isSelected = false;
+    }
+
+    public int getThumbnail() {
+        return thumbnail;
     }
 
     public String getTitle() {
@@ -40,6 +45,7 @@ public class Movie implements Serializable {
     }
 
     public void setSelected(boolean selected) {
+
         isSelected = selected;
     }
 }

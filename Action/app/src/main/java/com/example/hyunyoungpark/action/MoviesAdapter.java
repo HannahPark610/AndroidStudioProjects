@@ -7,22 +7,16 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.AlphaAnimation;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
 
-/**
- * Created by hyunyoungpark on 2017-07-19.
- */
-
 public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHolder> {
     private List<Movie> movie_list;
     private static int viewHolderCount;
-    int lastPosition = -1;
     CardView cv;
     boolean[] checkBoxState;
 
@@ -34,31 +28,15 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         viewHolderCount = 0;
     }
 
-    private void setAnimation(View view, int position) {
-        Context c = view.getContext(); if(position > lastPosition)
-        {
-            Animation animation = AnimationUtils.loadAnimation(c,android.R.anim.slide_in_left);
-            view.startAnimation(animation);
-            lastPosition = position; }
-    }
-
-    private void setFadeAnimation(View view) {
-        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f); anim.setDuration(1000);
-        view.startAnimation(anim);
-    }
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
-        int layoutIdForListItem = R.layout.movie_list_row;
-        LayoutInflater inflater = LayoutInflater.from(context);
-
-        boolean shouldAttachToParentImmediately = false;
-        View view;
-        view = inflater.inflate(layoutIdForListItem, parent, shouldAttachToParentImmediately);
-        MyViewHolder viewHolder = new MyViewHolder(view);
+        View itemview = LayoutInflater.from(parent.getContext()).inflate(R.layout.movie_list_row, parent, false);
+        MyViewHolder viewHolder = new MyViewHolder(itemview);
+        int bg = ColorUtils.getViewHolderBackgroundColorFromInstance(context, viewHolderCount);
+        viewHolder.itemView.setBackgroundColor(bg);
+        viewHolderCount++;
         return viewHolder;
-
     }
 
     //바인드뷰홀더란 : 재활용 되는 뷰가 호출하여 실행되는 메소드, 뷰 홀더를 전달하고 어댑터는 position 의 데이터를 결합시킵니다
@@ -70,44 +48,30 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         holder.listMovieView1.setText(movie.getTitle());
         holder.listMovieView2.setText(movie.getGenre());
         holder.listMovieView3.setText(movie.getYear());
+        holder.moviePhoto.setImageResource(movie.getThumbnail());
         holder.movieCheck.setChecked(movie_list.get(position).isSelected());
-
-        holder.listMovieView1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "you have clicked an item: ", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.listMovieView2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "you have clicked an item: ", Toast.LENGTH_SHORT).show();
-            }
-        });
-        holder.listMovieView3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(v.getContext(), "you have clicked an item: ", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-
-
         holder.movieCheck.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 movie_list.get(position).setSelected(true);
             }
         });
+        setFadeAnimation(holder.itemView);
+    }
 
-        setAnimation(holder.itemView, position);
-        setFadeAnimation (holder.itemView);
+    private void setFadeAnimation(View view) {
+        AlphaAnimation anim = new AlphaAnimation(0.0f, 1.0f);
+        anim.setDuration(1000);
+        view.startAnimation(anim);
+    }
+
+    @Override
+    public void onAttachedToRecyclerView(RecyclerView recyclerView) {
+        super.onAttachedToRecyclerView(recyclerView);
     }
 
     @Override
     public int getItemCount() {
-
         return movie_list.size();
     }
 
@@ -117,6 +81,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
         TextView listMovieView2;
         TextView listMovieView3;
         public CheckBox movieCheck;
+        public ImageView moviePhoto;
 
         public MyViewHolder(View view) {
 
@@ -126,16 +91,16 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             listMovieView1 = (TextView) view.findViewById(R.id.text1);
             listMovieView2 = (TextView) view.findViewById(R.id.text2);
             listMovieView3 = (TextView) view.findViewById(R.id.text3);
-
+            moviePhoto = (ImageView)view.findViewById(R.id.movie_image);
             movieCheck = (CheckBox) view.findViewById(R.id.checkBox);
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    int clickedPosition = getAdapterPosition();
                     Toast.makeText(v.getContext(), "you have clicked an item: ", Toast.LENGTH_SHORT).show();
                 }
             });
         }
-
     }
 }
