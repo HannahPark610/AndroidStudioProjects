@@ -19,6 +19,8 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
     private static int viewHolderCount;
     CardView cv;
     boolean[] checkBoxState;
+    public static int[] checkedMovie = new int[200];
+    public static int count=0;
 
 
     public MoviesAdapter(List<Movie> movie_list) {
@@ -45,15 +47,18 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
         Movie movie = movie_list.get(position);
 
-        holder.listMovieView1.setText(movie.getTitle());
-        holder.listMovieView2.setText(movie.getGenre());
-        holder.listMovieView3.setText(movie.getYear());
+        holder.title.setText(movie_list.get(position).getTitle());
+        holder.genre.setText(movie_list.get(position).getGenre());
+        holder.year.setText(movie_list.get(position).getYear());
+        holder.cast.setText(movie_list.get(position).getCast());
         holder.moviePhoto.setImageResource(movie.getThumbnail());
         holder.movieCheck.setChecked(movie_list.get(position).isSelected());
         holder.movieCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 movie_list.get(position).setSelected(true);
+                checkedMovie[count] = position;
+                count++;
             }
         });
         setFadeAnimation(holder.itemView);
@@ -72,14 +77,13 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
 
     @Override
     public int getItemCount() {
+
         return movie_list.size();
     }
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView listMovieView1;
-        TextView listMovieView2;
-        TextView listMovieView3;
+        public TextView title, year, genre, cast;
         public CheckBox movieCheck;
         public ImageView moviePhoto;
 
@@ -88,9 +92,10 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
             super(view);
             cv = (CardView) view.findViewById(R.id.cv);
 
-            listMovieView1 = (TextView) view.findViewById(R.id.text1);
-            listMovieView2 = (TextView) view.findViewById(R.id.text2);
-            listMovieView3 = (TextView) view.findViewById(R.id.text3);
+            title = (TextView) view.findViewById(R.id.tv_title);
+            year = (TextView) view.findViewById(R.id.tv_year);
+            genre = (TextView) view.findViewById(R.id.tv_genre);
+            cast = (TextView) view.findViewById(R.id.tv_cast);
             moviePhoto = (ImageView)view.findViewById(R.id.movie_image);
             movieCheck = (CheckBox) view.findViewById(R.id.checkBox);
 
@@ -98,7 +103,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.MyViewHold
                 @Override
                 public void onClick(View v) {
                     int clickedPosition = getAdapterPosition();
-                    Toast.makeText(v.getContext(), "you have clicked an item: ", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(v.getContext(), "you have clicked an item: " +clickedPosition, Toast.LENGTH_SHORT).show();
                 }
             });
         }

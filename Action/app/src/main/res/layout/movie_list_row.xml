@@ -36,7 +36,7 @@
             android:scaleType="fitCenter" />
 
     <TextView
-        android:id="@+id/text1"
+        android:id="@+id/tv_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginRight="10dp"
@@ -45,18 +45,26 @@
         android:gravity="center" />
 
     <TextView
-        android:id="@+id/text2"
+        android:id="@+id/tv_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="10pt"
         android:gravity="center"/>
 
     <TextView
-        android:id="@+id/text3"
+        android:id="@+id/tv_genre"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textSize="8pt"
         android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/tv_cast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lines="3"
+            android:gravity="left"
+            android:textSize="10sp" />
 
         </LinearLayout>
     </LinearLayout>
