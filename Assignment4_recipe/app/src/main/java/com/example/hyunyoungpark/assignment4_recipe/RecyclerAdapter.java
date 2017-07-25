@@ -40,10 +40,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     private int[] images = {
             R.drawable.tteokbokki,
             R.drawable.bulgogi,
-            R.drawable.chickenbbq,
             R.drawable.japchae,
-            R.drawable.jeon,
-            R.drawable.kimchijjigae,
             R.drawable.jjimdak,
             R.drawable.samgyeopsal
     };
