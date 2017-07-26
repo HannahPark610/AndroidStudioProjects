@@ -22,6 +22,7 @@ public class Movie implements Serializable {
 //    }
 
     public int getThumbnail() {
+
         return thumbnail;
     }
 
@@ -40,6 +41,7 @@ public class Movie implements Serializable {
     }
 
     public void setGenre(String genre) {
+
         this.genre = genre;
     }
 
@@ -50,6 +52,7 @@ public class Movie implements Serializable {
     }
 
     public void setYear(String year) {
+
         this.year = year;
     }
 
@@ -65,10 +68,12 @@ public class Movie implements Serializable {
     }
 
     public String getCast() {
+
         return cast;
     }
 
     public void setCast(String cast) {
+
         this.cast = cast;
     }
 }

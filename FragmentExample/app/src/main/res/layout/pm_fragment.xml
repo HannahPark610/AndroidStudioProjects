@@ -5,7 +5,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is potrait modr fragment"/>
+        android:text="This is portrait mode fragment"/>
 
     <Button
         android:layout_width="match_parent"
