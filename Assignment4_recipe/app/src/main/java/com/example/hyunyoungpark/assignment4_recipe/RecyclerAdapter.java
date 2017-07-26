@@ -38,11 +38,14 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ViewHo
     };
 
     private int[] images = {
-            R.drawable.tteokbokki,
+            R.drawable.bibimbab,
             R.drawable.bulgogi,
+            R.drawable.chicken,
             R.drawable.japchae,
+            R.drawable.jjeon,
             R.drawable.jjimdak,
-            R.drawable.samgyeopsal
+            R.drawable.samgyeopsal,
+            R.drawable.tteokbokki
     };
 
     class ViewHolder extends RecyclerView.ViewHolder {

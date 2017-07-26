@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:anroid="http://schemas.android.com/apk/res/android"
+    anroid:layout_width="match_parent"
+    anroid:layout_height="match_parent"
+    anroid:orientation="horizontal"
+    anroid:id="@+id/quizLinearLayout">
+
+    <FrameLayout
+        anroid:layout_width="match_parent"
+        anroid:layout_height="wrap_content"
+        anroid:id="@+id/pm_fragment"
+        anroid:name="com.example.hyunyoungpark.fragmentexample">
+
+    <FrameLayout
+        anroid:layout_width="match_parent"
+        anroid:layout_height="wrap_content"
+        anroid:id="@+id/lm_fragment"
+        anroid:name="com.example.hyunyoungpark.fragmentexample">
+
+    </FrameLayout>
+    </FrameLayout>
+
+    </LinearLayout>
