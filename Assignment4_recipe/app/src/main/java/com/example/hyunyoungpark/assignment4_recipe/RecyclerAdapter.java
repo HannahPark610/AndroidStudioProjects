@@ -85,8 +85,8 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         holder.foodName.setText(food_list.get(position).getFoodName());
         holder.foodIngredient.setText(food_list.get(position).getFoodIngredient());
         holder.foodDescription.setText(food_list.get(position).getFoodDescription());
-        holder.cast.setText(food_list.get(position).getCast());
-        holder.foodImage.setImageResource(food.getThumbnail());
+      //  holder.cast.setText(food_list.get(position).getCast());
+        holder.thumbnail.setImageResource(food.getThumbnail());
         holder.foodCheck.setChecked(food_list.get(position).isSelected());
         holder.foodCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -119,11 +119,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     class MyViewHolder extends RecyclerView.ViewHolder {
 
-        public ImageView foodImage;
+        public ImageView thumbnail;
         public TextView foodName;
         public TextView foodIngredient;
         public TextView foodDescription;
-        public TextView cast;
+    //    public TextView cast;
         public CheckBox foodCheck;
 
 
@@ -131,12 +131,12 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             super(view);
             cardView = (CardView) view.findViewById(R.id.card_view);
 
-            foodImage = (ImageView) itemView.findViewById(R.id.food_image);
+            thumbnail = (ImageView) itemView.findViewById(R.id.food_image);
             foodName = (TextView) itemView.findViewById(R.id.food_name);
             foodIngredient = (TextView) itemView.findViewById(R.id.food_ingredient);
             foodDescription = (TextView) itemView.findViewById(R.id.food_description);
 
-            foodImage = (ImageView)view.findViewById(R.id.food_image);
+            thumbnail = (ImageView)view.findViewById(R.id.food_image);
             foodCheck = (CheckBox) view.findViewById(R.id.checkBox);
 
             view.setOnClickListener(new View.OnClickListener() {

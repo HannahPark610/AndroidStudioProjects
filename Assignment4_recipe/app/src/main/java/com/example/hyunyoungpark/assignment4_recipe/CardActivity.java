@@ -12,16 +12,11 @@ import android.view.View;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by hyunyoungpark on 2017-07-24.
- */
-
 public class CardActivity extends AppCompatActivity {
 
-    private static String TAG = CardActivity.class.getSimpleName();
     private List<Food> foodList = new ArrayList<>();
     private RecyclerView recyclerView;
-    private RecyclerAdapter mAdapter;
+    private RecyclerAdapter fAdapter;
     private List<ArrayList<Integer>> FoodChecked;
 
 
@@ -31,17 +26,15 @@ public class CardActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-        recyclerView.setHasFixedSize(true);
+//        recyclerView.setHasFixedSize(true);
 
-        mAdapter = new RecyclerAdapter(foodList);
-        RecyclerView.LayoutManager mLayoutManager = new LinearLayoutManager(getApplicationContext());
-        recyclerView.setLayoutManager(mLayoutManager);
-        recyclerView.setAdapter(mAdapter);
+        fAdapter = new RecyclerAdapter(foodList);
+        RecyclerView.LayoutManager fLayoutManager = new LinearLayoutManager(getApplicationContext());
+        recyclerView.setLayoutManager(fLayoutManager);
+        recyclerView.setAdapter(fAdapter);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         prepareFoodData();
     }
-
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -91,20 +84,29 @@ public class CardActivity extends AppCompatActivity {
         food = new Food("Tteokbokki", "Rice Cake, Red Papper Source, Egg, Fish Cake", "Tteokbokki is..", R.drawable.tteokbokki);
         foodList.add(food);
 
-        mAdapter.notifyDataSetChanged();
+//        fAdapter.notifyDataSetChanged();
     }
 
+//    @Override
+//    public void onListItemClick(int position) {
+//
+//        Food f = foodList.get(position);
+//        String foodName = f.getFoodName();
+//        String foodIngredient = f.getFoodIngredient();
+//        String foodDescription = f.getFoodDescription();
+//    }
+
     public void selectAll(View view) {
-        for (Food m : foodList) {
-            m.setSelected(true);
-            mAdapter.notifyDataSetChanged();
+        for (Food f : foodList) {
+            f.setSelected(true);
+            fAdapter.notifyDataSetChanged();
         }
     }
 
     public void clearAll(View view) {
-        for (Food m : foodList) {
-            m.setSelected(false);
-            mAdapter.notifyDataSetChanged();
+        for (Food f : foodList) {
+            f.setSelected(false);
+            fAdapter.notifyDataSetChanged();
         }
     }
 
@@ -115,9 +117,8 @@ public class CardActivity extends AppCompatActivity {
             }
 
         }
-        mAdapter.notifyDataSetChanged();
+        fAdapter.notifyDataSetChanged();
     }
 
 }
-
 

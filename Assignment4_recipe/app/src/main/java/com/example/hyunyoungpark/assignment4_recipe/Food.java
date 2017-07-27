@@ -1,12 +1,10 @@
 package com.example.hyunyoungpark.assignment4_recipe;
 
-import java.io.Serializable;
-
 /**
  * Created by hyunyoungpark on 2017-07-26.
  */
 
-public class Food implements Serializable {
+public class Food {
 
     private String foodName;
     private String foodIngredient;
@@ -14,6 +12,16 @@ public class Food implements Serializable {
     private String cast;
     private int thumbnail;
     private boolean isSelected;
+
+
+    public Food(String foodName, String foodIngredient, String foodDescription, int thumbnail) {
+        this.thumbnail = thumbnail;
+        this.foodName = foodName;
+        this.foodIngredient = foodIngredient;
+        this.foodDescription = foodDescription;
+
+        isSelected = false;
+    }
 
     public String getFoodName() {
         return foodName;
