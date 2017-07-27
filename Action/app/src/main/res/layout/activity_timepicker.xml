@@ -16,4 +16,19 @@
         android:id="@+id/buttonDate"
         android:text="showDatePickerDialog"
         android:onClick="onClick"/>
+
+    <Spinner
+        android:id="@+id/sp_planets"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:backgroundTint="@color/cardview_dark_background">
+    <Spinner
+        android:id="@+id/sp_planets2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center">
+
+    </Spinner>
+    </Spinner>
 </LinearLayout>

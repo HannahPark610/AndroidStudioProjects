@@ -9,7 +9,6 @@ public class Food {
     private String foodName;
     private String foodIngredient;
     private String foodDescription;
-    private String cast;
     private int thumbnail;
     private boolean isSelected;
 
@@ -45,14 +44,6 @@ public class Food {
 
     public void setFoodDescription(String foodDescription) {
         this.foodDescription = foodDescription;
-    }
-
-    public String getCast() {
-        return cast;
-    }
-
-    public void setCast(String cast) {
-        this.cast = cast;
     }
 
     public int getThumbnail() {

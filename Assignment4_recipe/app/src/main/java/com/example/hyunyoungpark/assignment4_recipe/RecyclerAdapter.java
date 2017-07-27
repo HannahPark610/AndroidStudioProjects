@@ -91,7 +91,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         holder.foodCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                food_list.get(position).setSelected(true);
+                boolean isCheck = ((CheckBox)v).isChecked();
+                if (isCheck) {
+                    food_list.get(position).setSelected(true);
+                } else {
+                    food_list.get(position).setSelected(false);
+                }
+               // food_list.get(position).setSelected(true);
                 checkedFood[count] = position;
                 count++;
             }

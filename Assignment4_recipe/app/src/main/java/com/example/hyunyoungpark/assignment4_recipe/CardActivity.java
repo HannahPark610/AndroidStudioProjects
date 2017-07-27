@@ -111,11 +111,10 @@ public class CardActivity extends AppCompatActivity {
     }
 
     public void deleteMovie(View view) {
-        for (int i = 0; i<foodList.size(); i++) {
+        for(int i = foodList.size() - 1; i >= 0; i--) {
             if(foodList.get(i).isSelected()) {
                 foodList.remove(i);
             }
-
         }
         fAdapter.notifyDataSetChanged();
     }

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/bibimbab_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bibimbab"
+        android:textSize="10pt"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <ImageView
+        android:id="@+id/bibimbab_image"
+        android:layout_width="269dp"
+        android:layout_height="173dp"
+        app:srcCompat="@drawable/bibimbab"
+        android:layout_gravity="center"/>
+
+    <TextView
+        android:id="@+id/bibimbab_body"
+        android:layout_width="356dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Seasoned beef and various seasoned vegetables such as bean sprouts, spinach, crown daisy, bracken, roots of Chinese bellflower, watercress and shiitake mushroom are nicely arranged on the steamed rice. Then, all are mixed with hot pepper soybean paste. The recipe of Bibimbab is a little bit different according to regions. It surely is an excellent dish a la carte in taste and nutrition." />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:id="@+id/Previous"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Previous"
+            tools:ignore="ButtonStyle" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"   />
+
+        <Button
+            android:id="@+id/Next"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:text="Next"
+            tools:ignore="ButtonStyle" />
+
+    </LinearLayout>
+</LinearLayout>
