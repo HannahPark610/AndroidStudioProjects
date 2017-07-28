@@ -21,7 +21,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     private static int viewHolderCount;
     CardView cardView;
     boolean[] checkBoxState;
-    public static int[] checkedFood = new int[8];
+    public static int[] checkedFood = new int[20];
     public static int count = 0;
 
     public RecyclerAdapter(List<Food> food_list) {
@@ -29,6 +29,10 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         this.food_list = food_list;
         checkBoxState = new boolean[food_list.size()];
         viewHolderCount = 0;
+    }
+
+    public interface OnItemClickListener {
+        void onItemClick(View view, int position);
     }
 
 
@@ -69,9 +73,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+
         Context context = parent.getContext();
         View itemview = LayoutInflater.from(parent.getContext()).inflate(R.layout.food_list_row, parent, false);
         MyViewHolder viewHolder = new MyViewHolder(itemview);
+
         int bg = ColorUtils.getViewHolderBackgroundColorFromInstance(context, viewHolderCount);
         viewHolder.itemView.setBackgroundColor(bg);
         viewHolderCount++;
@@ -87,6 +93,7 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         holder.foodDescription.setText(food_list.get(position).getFoodDescription());
       //  holder.cast.setText(food_list.get(position).getCast());
         holder.thumbnail.setImageResource(food.getThumbnail());
+
         holder.foodCheck.setChecked(food_list.get(position).isSelected());
         holder.foodCheck.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -122,7 +129,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         return food_list.size();
     }
 
-
     class MyViewHolder extends RecyclerView.ViewHolder {
 
         public ImageView thumbnail;
@@ -145,13 +151,13 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
             thumbnail = (ImageView)view.findViewById(R.id.food_image);
             foodCheck = (CheckBox) view.findViewById(R.id.checkBox);
 
-            view.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    int clickedPosition = getAdapterPosition();
-                    Toast.makeText(v.getContext(), "you have clicked an item: " + clickedPosition, Toast.LENGTH_SHORT).show();
-                }
-            });
+//            view.setOnClickListener(new View.OnClickListener() {
+//                @Override
+//                public void onClick(View v) {
+//                    int clickedPosition = getAdapterPosition();
+//                    Toast.makeText(v.getContext(), "you have clicked an item: " + clickedPosition, Toast.LENGTH_SHORT).show();
+//                }
+//            });
 
         }
     }
