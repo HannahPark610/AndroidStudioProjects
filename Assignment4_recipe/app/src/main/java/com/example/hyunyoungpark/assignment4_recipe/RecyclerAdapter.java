@@ -1,6 +1,7 @@
 package com.example.hyunyoungpark.assignment4_recipe;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -35,42 +36,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         void onItemClick(View view, int position);
     }
 
-
-//    private String[] titles = {
-//            "1",
-//            "2",
-//            "3",
-//            "4",
-//            "5",
-//            "6",
-//            "7",
-//            "8"
-//
-//    };
-//
-//    private String[] details = {
-//            "1 details",
-//            "2 details",
-//            "3 details",
-//            "4 details",
-//            "5 details",
-//            "6 details",
-//            "7 details",
-//            "8 details"
-//    };
-//
-//    private int[] images = {
-//            R.drawable.bibimbab,
-//            R.drawable.bulgogi,
-//            R.drawable.chicken,
-//            R.drawable.japchae,
-//            R.drawable.jjeon,
-//            R.drawable.jjimdak,
-//            R.drawable.samgyeopsal,
-//            R.drawable.tteokbokki
-//    };
-
-
     @Override
     public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
@@ -85,28 +50,81 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
     }
 
     @Override
-    public void onBindViewHolder(MyViewHolder holder, final int position) {
+    public void onBindViewHolder(final MyViewHolder holder, final int position) {
         Food food = food_list.get(position);
 
         holder.foodName.setText(food_list.get(position).getFoodName());
         holder.foodIngredient.setText(food_list.get(position).getFoodIngredient());
         holder.foodDescription.setText(food_list.get(position).getFoodDescription());
-      //  holder.cast.setText(food_list.get(position).getCast());
         holder.thumbnail.setImageResource(food.getThumbnail());
 
         holder.foodCheck.setChecked(food_list.get(position).isSelected());
+
         holder.foodCheck.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 boolean isCheck = ((CheckBox)v).isChecked();
                 if (isCheck) {
                     food_list.get(position).setSelected(true);
+
                 } else {
+
                     food_list.get(position).setSelected(false);
                 }
-               // food_list.get(position).setSelected(true);
+
+                food_list.get(position).setSelected(true);
                 checkedFood[count] = position;
                 count++;
+            }
+        });
+
+        holder.foodName.setOnClickListener(new View.OnClickListener() {
+            Intent intent= null;
+
+            @Override
+            public void onClick(View view) {
+                Context c = view.getContext();
+                switch(position)
+                {
+                    case 0: intent = new Intent(view.getContext(), BibimbabActivity.class);
+                        intent.putExtra("MENU","aa");
+                            c.startActivity(intent);
+                            break;
+
+                    case 1: intent = new Intent(view.getContext(),BulgogiActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                            break;
+
+                    case 2: intent = new Intent(view.getContext(),ChickenActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                            break;
+
+                    case 3: intent = new Intent(view.getContext(),JapchaeActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                            break;
+
+                    case 4: intent = new Intent(view.getContext(),JjeonActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                            break;
+
+                    case 5: intent = new Intent(view.getContext(),JjimdakActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                            break;
+
+                    case 6: intent = new Intent(view.getContext(),SamgyeopsalActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                            break;
+
+                    default: intent = new Intent(view.getContext(),TteokbokkiActivity.class);
+                        intent.putExtra("MENU","aa");
+                        c.startActivity(intent);
+                }
             }
         });
         setFadeAnimation(holder.itemView);
@@ -135,11 +153,11 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
         public TextView foodName;
         public TextView foodIngredient;
         public TextView foodDescription;
-    //    public TextView cast;
         public CheckBox foodCheck;
 
 
         public MyViewHolder(View view) {
+
             super(view);
             cardView = (CardView) view.findViewById(R.id.card_view);
 
@@ -150,15 +168,6 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.MyView
 
             thumbnail = (ImageView)view.findViewById(R.id.food_image);
             foodCheck = (CheckBox) view.findViewById(R.id.checkBox);
-
-//            view.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    int clickedPosition = getAdapterPosition();
-//                    Toast.makeText(v.getContext(), "you have clicked an item: " + clickedPosition, Toast.LENGTH_SHORT).show();
-//                }
-//            });
-
         }
     }
 }

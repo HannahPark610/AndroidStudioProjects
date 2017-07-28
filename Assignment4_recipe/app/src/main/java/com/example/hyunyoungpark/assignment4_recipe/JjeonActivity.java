@@ -20,11 +20,7 @@ public class JjeonActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bulgogi);
-
-        String savedExtra = getIntent().getStringExtra("MENU");
-        TextView myText = (TextView) findViewById(R.id.food_name);
-        myText.setText(savedExtra);
+        setContentView(R.layout.activity_jjeon);
 
         Button b1 = (Button)findViewById(R.id.Previous);
         b1.setOnClickListener(new View.OnClickListener() {

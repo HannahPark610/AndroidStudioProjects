@@ -22,6 +22,41 @@
             android:name=".BibimbabActivity"
             android:label="@string/app_name">
         </activity>
+
+        <activity
+            android:name=".BulgogiActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".ChickenActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".JapchaeActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".JjeonActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".JjimdakActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".SamgyeopsalActivity"
+            android:label="@string/app_name">
+        </activity>
+
+        <activity
+            android:name=".TteokbokkiActivity"
+            android:label="@string/app_name">
+        </activity>
     </application>
 
 </manifest>
