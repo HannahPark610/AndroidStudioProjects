@@ -1,10 +1,8 @@
 package com.example.hyunyoungpark.prefrencesexample;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 
-/**
- * Created by hyunyoungpark on 2017-07-28.
- */
 
 public class PreferenceFragment extends android.preference.PreferenceFragment {
 

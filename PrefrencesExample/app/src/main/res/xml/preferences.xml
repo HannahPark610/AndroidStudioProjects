@@ -1,22 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android">
     <EditTextPreference
-        android:title="Number of choices"
+        android:title="Your Name"
         android:key="username"
-        android:summary="Display 2,4,6 or 8 guess buttons" />
+        android:summary="Please provide your username">
 
+    </EditTextPreference>
     <CheckBoxPreference
         android:title="Application Updates"
         android:defaultValue="false"
         android:summary="This option if selected will allow the application to check for latest versions."
         android:key="applicationUpdates" />
-
     <ListPreference
-        android:title="Regions"
-        android:summary="Regions to include in the quiz"
+        android:title="Download Details"
+        android:summary="Select the kind of data that you would like to download"
         android:key="downloadType"
         android:defaultValue="1"
-        android:entries="@array/regions_list"
-        android:entryValues="@array/regions_list_for_settings" />
-
+        android:entries="@array/listArray"
+        android:entryValues="@array/listValues" />
 </PreferenceScreen>

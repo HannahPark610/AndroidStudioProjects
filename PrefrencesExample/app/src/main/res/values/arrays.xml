@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="regions_list">
-        <item>Africa</item>
-        <item>Asia</item>
-        <item>Europe</item>
-        <item>North_america</item>
-        <item>Ocenia</item>
-        <item>South_America</item>
+    <string-array name="listArray">
+        <item>Headings</item>
+        <item>Headings and Details</item>
+        <item>All Data</item>
     </string-array>
 
-    <string-array name="regions_list_for_settings">
-        <item>Africa</item>
-        <item>Asia</item>
-        <item>Europe</item>
-        <item>North_america</item>
-        <item>Ocenia</item>
-        <item>South_America</item>
-    </string-array>
-
-    <string-array name="guesses_list">
+    <string-array name="listValues">
+        <item>1</item>
         <item>2</item>
-        <item>4</item>
-        <item>6</item>
-        <item>8</item>
+        <item>3</item>
     </string-array>
 
 </resources>
