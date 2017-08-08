@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:layout_centerHorizontal="true">
+
+    <ImageView
+        android:id="@+id/foodlogo"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:background="@drawable/food_icon3"
+        android:layout_marginTop="79dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+    </ImageView>
+
+    <TextView
+        android:id="@+id/textemty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/foodlogo"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="MY"
+        android:textSize="10pt"
+        android:minWidth="110sp"
+        android:textColor="#00ACC1"
+        android:textStyle="bold"
+        android:layout_below="@+id/textemty"
+        android:layout_alignLeft="@+id/foodlogo"
+        android:layout_alignStart="@+id/foodlogo"
+        android:layout_alignRight="@+id/foodlogo"
+        android:layout_alignEnd="@+id/foodlogo" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="FAVORITE"
+        android:textSize="10pt"
+        android:minWidth="110sp"
+        android:textColor="#00ACC1"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView1"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_alignStart="@+id/textView1"
+        android:layout_alignRight="@+id/textView1"
+        android:layout_alignEnd="@+id/textView1" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:text="RESTAURANT"
+        android:textSize="10pt"
+        android:minWidth="110sp"
+        android:textColor="#00ACC1"
+        android:textStyle="bold"
+        android:layout_below="@+id/textView2"
+        android:layout_alignLeft="@+id/textView2"
+        android:layout_alignStart="@+id/textView2"
+        android:layout_alignRight="@+id/textView2"
+        android:layout_alignEnd="@+id/textView2" />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textView3"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp"
+        android:text="START" />
+
+
+</RelativeLayout>
