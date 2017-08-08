@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main2"
+    android:id="@+id/activity_main3"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -76,7 +76,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="68dp"
-                    android:src="@drawable/chicken" />
+                    android:src="@drawable/chicken1" />
 
                 <RadioButton
                     android:id="@+id/radio2"
@@ -86,7 +86,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="68dp"
-                    android:src="@drawable/pizza" />
+                    android:src="@drawable/pizza1" />
 
                 <RadioButton
                     android:id="@+id/radio3"
@@ -96,7 +96,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="68dp"
-                    android:src="@drawable/pasta" />
+                    android:src="@drawable/pasta1" />
             </RadioGroup>
         </TableRow>
 

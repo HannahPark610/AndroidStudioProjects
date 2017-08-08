@@ -17,8 +17,8 @@ public class ContentActivity1 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main2);
-        setTitle("My Favorite Restaurant");
+        setContentView(R.layout.activity_main3);
+        //setTitle("My Favorite Restaurant");
 
         init();
     }
@@ -46,24 +46,29 @@ public class ContentActivity1 extends AppCompatActivity {
         if(v.getId() == R.id.btnCancel){
             finish();
         }else if(v.getId() == R.id.btnAdd){
-            Intent intent = new Intent();
+            Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
 
-            int n;
+            int itemType;
 
-            if(radio1.isChecked())  n = 1;
-            else if(radio2.isChecked()) n = 2;
-            else    n = 3;
+            if(radio1.isChecked()) {
+                itemType = 1;
+            } else if(radio2.isChecked()) {
+                itemType = 2;
+            } else {
+                itemType = 3;
+            }
 
             String name =etName.getText().toString();
             String tel = etTel.getText().toString();
             String[] menu = {etMenu1.getText().toString(), etMenu2.getText().toString(), etMenu3.getText().toString()};
             String h = etaddr.getText().toString();
 
-            restaurant temp = new restaurant(name, h, tel, getTime(), menu, n);
+            restaurant temp = new restaurant(name, h, tel, getTime(), menu, itemType);
 
-            intent.putExtra("restaurant", temp);
+            intent.putExtra("myRestaurant", temp);
             setResult(RESULT_OK, intent);
-            finish();
+            //finish();
+            startActivity(intent);
 
         }
     }

@@ -28,63 +28,50 @@ public class MainActivity extends AppCompatActivity {
     ArrayList<String> title = new ArrayList<>();
 
 
-    public Button startButton;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        setTitle("My Favorite Restaurant");
+        setContentView(R.layout.activity_main2);
 
-        init();
-    }
-
-
-    void init(){
-        startButton=(Button)findViewById(R.id.startButton);
-        startButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-                Intent firstButton = new Intent(MainActivity.this,ContentActivity1.class);
-
-                startActivity(firstButton);
-            }
-        });
-
-
+        RestaurantAdapter adapter = new RestaurantAdapter(this, null);
         listview = (ListView)findViewById(R.id.listview);
         tv = (TextView)findViewById(R.id.tv);
 
-        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, title);
+        Intent intent = getIntent();
+        if(intent.getParcelableExtra("myRestaurant") != null) {
+            restaurant tempRestaurant = (restaurant) intent.getParcelableExtra("myRestaurant");
+           adapter = new RestaurantAdapter(this, tempRestaurant);
+        }
+
+//        adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, title);
 
         listview.setAdapter(adapter);
 
-        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
-            @Override
-            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
-                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
-                final int position = i;
-                dlg.setTitle("Delete")
-                        .setMessage("Are you sure delete it?")
-                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-
-                            }
-                        })
-                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialogInterface, int i) {
-                                title.remove(position);
-                                storage.remove(position);
-                                adapter.notifyDataSetChanged();
-                                tv.setText("My Favorite Restaurant List("+title.size()+")");
-                            }
-                        }).show();
-                return true;
-            }
-        });
+//        listview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+//            @Override
+//            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+//                AlertDialog.Builder dlg = new AlertDialog.Builder(MainActivity.this);
+//                final int position = i;
+//                dlg.setTitle("Delete")
+//                        .setMessage("Are you sure delete it?")
+//                        .setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//
+//                            }
+//                        })
+//                        .setPositiveButton("Confirm", new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialogInterface, int i) {
+//                                title.remove(position);
+//                                storage.remove(position);
+//                                adapter.notifyDataSetChanged();
+//                                tv.setText("My Favorite Restaurant List("+title.size()+")");
+//                            }
+//                        }).show();
+//                return true;
+//            }
+//        });
 
         listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -98,10 +85,10 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
-    public void onClick(View v){
-        Intent intent = new Intent(this,ContentActivity1.class);
-
-        startActivityForResult(intent, Addition);
+    public void onClicked(View v){
+        Intent intent = new Intent(MainActivity.this, ContentActivity1.class);
+        startActivity(intent);
+//        startActivityForResult(intent, Addition);
     }
 
     @Override
