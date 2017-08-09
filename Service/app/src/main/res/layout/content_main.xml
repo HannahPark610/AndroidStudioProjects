@@ -35,4 +35,45 @@
         android:layout_centerVertical="true"
         android:text="Next Page" />
 
+    <EditText
+        android:id="@+id/editSeconds"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/buttonNext"
+        android:layout_marginTop="42dp"
+        android:hint="seconds to sleep"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:id="@+id/buttonIntent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/editSeconds"
+        android:layout_marginTop="28dp"
+        android:text="start Intent Service"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/buttonHandler"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
+        android:text="Click To start Handler"
+        android:layout_alignParentEnd="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar1"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="false"
+        android:max="10"
+        android:padding="4dip" >
+    </ProgressBar>
+
+
 </RelativeLayout>

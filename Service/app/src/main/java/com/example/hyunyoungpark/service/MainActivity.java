@@ -2,6 +2,7 @@ package com.example.hyunyoungpark.service;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -10,10 +11,18 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    Button buttonStart, buttonStop,buttonNext;
+    Button buttonStart, buttonStop,buttonNext, buttonIntent;
+    Button buttonHandler;
+    EditText sleepTime;
+    Long secondtoSleep;
+    private Handler handler;
+    private ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +42,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         });
 
         setContentView(R.layout.activity_main);
+        handler = new Handler();
 
         buttonStart = (Button) findViewById(R.id.buttonStart);
         buttonStop = (Button) findViewById(R.id.buttonStop);
         buttonNext = (Button) findViewById(R.id.buttonNext);
+        buttonIntent = (Button) findViewById(R.id.buttonIntent);
+        sleepTime = (EditText) findViewById(R.id.editSeconds);
+        buttonHandler = (Button) findViewById(R.id.buttonHandler);
 
         buttonStart.setOnClickListener(this);
         buttonStop.setOnClickListener(this);
         buttonNext.setOnClickListener(this);
+        buttonIntent.setOnClickListener(this);
+        buttonHandler.setOnClickListener(this);
     }
 
     @Override
@@ -78,8 +93,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 stopService(i);
                 break;
             case R.id.buttonNext:
-                i = new Intent(this,NextClass.class);
-                startActivity(i);
+                secondtoSleep = Long.parseLong(sleepTime.getText().toString());
+                i = new Intent(this,MyService.class);
+                i.putExtra("second",secondtoSleep);
+                startService(i);
+                break;
+            case R.id.buttonIntent:
+                secondtoSleep = Long.parseLong(sleepTime.getText().toString());
+                i = new Intent(this,SleeperClass.class);
+                i.putExtra("second",secondtoSleep);
+                startService(i);
                 break;
 
         }

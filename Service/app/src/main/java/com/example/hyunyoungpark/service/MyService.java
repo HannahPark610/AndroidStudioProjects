@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class MyService extends Service {
 
     MediaPlayer m;
+    long seconds;
 
     @Override
     public IBinder onBind(Intent intent) {
@@ -27,14 +28,21 @@ public class MyService extends Service {
     public void onCreate() {
         super.onCreate();
         Toast.makeText(this, "Service is created", Toast.LENGTH_LONG).show();
-        m = MediaPlayer.create(this,R.raw.music1);
+
     }
 
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Toast.makeText(this,"Service started",Toast.LENGTH_LONG).show();
-        m.start();
-        stopSelf();
+        seconds = intent.getExtras().getLong("seconds");
+        long milliSeconds = seconds * 1000;
+
+        try {
+            Thread.sleep(milliSeconds);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         return super.onStartCommand(intent, flags, startId);
     }
 
@@ -42,6 +50,6 @@ public class MyService extends Service {
     public void onDestroy() {
         super.onDestroy();
         Toast.makeText(this,"Service stopped", Toast.LENGTH_LONG).show();
-        m.stop();
+//        m.stop();
     }
 }
