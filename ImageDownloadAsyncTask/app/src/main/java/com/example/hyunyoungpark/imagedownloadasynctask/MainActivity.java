@@ -1,6 +1,8 @@
 package com.example.hyunyoungpark.imagedownloadasynctask;
 
+import android.content.Context;
 import android.os.AsyncTask;
+import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -11,7 +13,14 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -29,38 +38,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         downloadImageProgress = (ProgressBar) findViewById(R.id.downloadProgress);
         listofImages = getResources().getStringArray(R.array.imageuris);
         chooseImageList.setOnItemClickListener(this);
-        ArrayAdapter<String> a = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, new ArrayList<>());
-        chooseImageList.setAdapter(a);
-        new MyTask1().execute();
+
     }
 
     public void downloadImage(View view) {
         if (selectiontext.getText().toString() != null
                 && (selectiontext.getText().toString().length()) > 0) {
             // create instance of subClass (MyTask).
+            MyTask1 task1 = new MyTask1();
             // call method execute() on it and it accepts text read from textview as parameter.
-            class MyTask extends AsyncTask<Void,Void,Void> {
-
-                @Override
-                protected void onPreExecute() {
-
-
-                }
-
-                @Override
-                protected Void doInBackground(Void... voids) {
-                    return null;
-                }
-
-                @Override
-                protected void onProgressUpdate(Void...voids) {
-                }
-
-                @Override
-                protected void onPostExecute(Void...voids) {
-
-                }
-            }
+            task1.execute(selectiontext.getText().toString());
 
         }
     }
@@ -72,47 +59,78 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     class MyTask1 extends AsyncTask<String,Integer,Boolean> {
-        ArrayAdapter<String> adpter;
-        private int count=0;
+
 
         @Override
         protected void onPreExecute() {
-            adpter = (ArrayAdapter<String>) listofImages.getAdapter();
             downloadImageProgress.setVisibility(View.VISIBLE);
         }
 
         @Override
         protected Boolean doInBackground(String... params) {
 
-            for(String item: listofImages) {
-                publishProgress(item);
+            // Ceate an instance of URL, HttpURLConnection, InputStream, FileOutputStream,File class
 
-                try {
-                    Thread.sleep(2000);
-                }catch (InterruptedException e) {
-                    e.printStackTrace();
+            URL url = null;
+            HttpURLConnection urlCon = null;
+            InputStream input = null;
+            FileOutputStream output = null;
+            String saveFileName = new SimpleDateFormat("yyyyMMddHHmm'.png'").format(new Date());
+            File file = new File(Environment.getExternalStorageDirectory().getAbsoluteFile() + "/" + saveFileName);
+            boolean success = false;
+            try {
+                url = new URL(params[0].toString());
+                urlCon = (HttpURLConnection) url.openConnection();
+                urlCon.connect();
+
+                // Create a boolean variable successfull and set its intial value to false
+
+                if(urlCon.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                    return false;
                 }
+                int fileLength = urlCon.getContentLength();
+
+                input = urlCon.getInputStream();
+                output = openFileOutput(file.getName(), Context.MODE_APPEND);
+
+                byte[] b = new byte[2048];
+                int length;
+                long total = 0;
+
+                while ((length = input.read(b)) != -1) {
+                    total += length;
+                    if(fileLength > 0) {
+                        publishProgress((int)(total * 100/ fileLength));
+                    }
+                    output.write(b, 0, length);
+                }
+                input.close();
+                output.close();
+                success = true;
+
+            } catch (Exception e) {
+                e.printStackTrace();
+                success = false;
             }
 
-            // Ceate an instance of URL, HttpURLConnection, InputStream, FileOutputStream,File class
-            // Create a boolean variable successfull and set its intial value to false
-            // if image download succesfully set it to true. return a boolean value of success
-            // Write a code that download the image from internet
-            // count how many bytes are downloded for that image and use this count to show the progress
+                // if image download succesfully set it to true. return a boolean value of success
+                // Write a code that download the image from internet
+                // count how many bytes are downloded for that image and use this count to show the progress
+            return success;
+
         }
 
         @Override
         protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
             //calculate the progress and show it on progressbar
+            downloadImageProgress.setProgress(values[0]);
         }
 
         @Override
         protected void onPostExecute(Boolean aBoolean) {
-            Toast.makeText(MainActivity.this,"ALL ITEMS ADDED SUCCESFULLY",
-                    Toast.LENGTH_LONG).show();
-            downloadImageProgress.setVisibility(View.GONE);        }
+            //set visibility of progessbar to gone
+            downloadImageProgress.setVisibility(View.GONE);
+        }
     }
-
-
-
 }

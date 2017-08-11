@@ -1,4 +1,17 @@
 <resources>
-    <string name="app_name">Service</string>
-    <string name="action_settings">Settings</string>
+    <string name="app_name">ImageDownloadAsyncTask</string>
+    <string-array name="uris">
+        <item>image 1</item>
+        <item>image 2</item>
+        <item>image 3</item>
+        <item>image 4</item>
+        <item>image 5</item>
+        <item>image 6</item>
+        <item>image 7</item>
+    </string-array>
+
+    <string-array name="imageuris">
+        <item>http://www.crossshoresolutions.com/blog/wp-content/uploads/2014/06/Android_1.5_Cupcake.jpg</item>
+        //like the above add 6 items which have image urls
+    </string-array>
 </resources>
