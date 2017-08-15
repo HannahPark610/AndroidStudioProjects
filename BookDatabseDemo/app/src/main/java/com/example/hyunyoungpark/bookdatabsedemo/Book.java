@@ -4,10 +4,13 @@ public class Book {
     private int id;
     private String title, author;
 
-    public Book(String title, String author)
+    //default constract
+    public Book()
     {
-        this.title = title;
-        this.author = author;
+//        this.title = title;
+//        this.author = author;
+
+
     }
 
     //getter & setter Methods
