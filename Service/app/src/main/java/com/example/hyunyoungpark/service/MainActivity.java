@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setContentView(R.layout.activity_main);
         handler = new Handler();
 
+        progressBar = (ProgressBar) findViewById(R.id.progressBar1);
+
         buttonStart = (Button) findViewById(R.id.buttonStart);
         buttonStop = (Button) findViewById(R.id.buttonStop);
         buttonNext = (Button) findViewById(R.id.buttonNext);

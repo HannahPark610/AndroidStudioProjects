@@ -1,3 +1,8 @@
 <resources>
-    <string name="app_name">MyBroadcastReceiverDemo</string>
+    <string name="app_name">BasicMusicPlayer</string>
+    <string name="playername">Basic Music Player</string>
+    <string name="isPlaying">Song is Playing ...</string>
+    <string name="stopped">Song is stopped ...</string>
+    <string name="paused">Song is paused ...</string>
+    <string name="reset">Player is reset ...</string>
 </resources>
