@@ -3,14 +3,16 @@ package com.example.hyunyoungpark.bookdatabsedemo;
 public class Book {
     private int id;
     private String title, author;
-
-    //default constract
+    //default constructor
     public Book()
     {
-//        this.title = title;
-//        this.author = author;
 
+    }
 
+    public Book(String title, String author)
+    {
+        this.title = title;
+        this.author = author;
     }
 
     //getter & setter Methods
