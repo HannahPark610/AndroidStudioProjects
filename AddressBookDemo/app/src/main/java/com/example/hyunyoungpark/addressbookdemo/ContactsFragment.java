@@ -1,11 +1,12 @@
 package com.example.hyunyoungpark.addressbookdemo;
 
 import android.content.Context;
+import android.net.Uri;
+import android.support.v4.app.Fragment;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -17,19 +18,29 @@ import android.view.ViewGroup;
 
 import com.example.hyunyoungpark.addressbookdemo.Data.DatabaseDescription;
 
+
 public class ContactsFragment extends Fragment
-        implements LoaderManager.LoaderCallbacks<Cursor> {
+        implements  LoaderManager.LoaderCallbacks<Cursor>
+{
 
+//from here you should goto MainActivity and load
+    //detailFragment with selected ID
+//    @Override
+//    public void onClick(Uri uri) {
+//        contactFragmentInterface.onContactSelected(uri);
+//    }
 
+    //interface .: have only methods no implementation
+    //Class implementing interface will have code
     public interface ContactFragmentInterface
     {
         void onAddContact();
+        void onContactSelected(Uri uri);
     }
-
     private ContactAdapter contactAdapter;
     private int contact_loader =0;
+    //declaration not intialization
     public ContactFragmentInterface contactFragmentInterface;
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -47,7 +58,12 @@ public class ContactsFragment extends Fragment
                         getActivity().getBaseContext()
                 ));
         //set Adapter
-        contactAdapter =  new ContactAdapter();
+        contactAdapter =  new ContactAdapter(new ContactAdapter.ContactAdapterInterface() {
+            @Override
+            public void onClick(Uri uri) {
+                contactFragmentInterface.onContactSelected(uri);
+            }
+        });
         recyclerView.setAdapter(contactAdapter);
         recyclerView.addItemDecoration(new
                 ItemDivider(getContext()));
@@ -58,9 +74,8 @@ public class ContactsFragment extends Fragment
                 view.findViewById(R.id.addButton);
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
+            public void onClick(View v) {
                 contactFragmentInterface.onAddContact();
-
             }
         });
         return  view;

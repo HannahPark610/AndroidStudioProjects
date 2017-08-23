@@ -38,7 +38,7 @@ public class AddressBookContentProvider  extends ContentProvider{
 
         //uri for contact table with specific #id value
         uriMatcher.addURI(DatabaseDescription.AUTHORITY,
-                DatabaseDescription.Contact.TABLE_NAME + " /#"
+                DatabaseDescription.Contact.TABLE_NAME + "/#"
                 ,ONE_CONTACT);
 
     }
