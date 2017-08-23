@@ -19,6 +19,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <provider
+            android:authorities="com.ciccc_cirac.addressbookdemo.data"
+            android:name=".data.AddressBookContentProvider"
+            android:enabled="true">
+
+        </provider>
     </application>
 
 </manifest>
