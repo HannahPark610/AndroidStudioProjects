@@ -5,9 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
@@ -18,8 +16,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-
-import com.example.hyunyoungpark.addressbookdemo.data.DatabaseDescription;
+import com.example.hyunyoungpark.addressbookdemo.Data.DatabaseDescription;
 
 //Task todo 1)  public void onLoadFinished(Loader<Cursor> loader, Cursor data) add the remaining columns
 // todo 2) private void saveContact() add the contentvalues for remaining columns

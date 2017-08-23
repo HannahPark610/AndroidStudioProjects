@@ -11,7 +11,7 @@ import android.provider.BaseColumns;
 public class DatabaseDescription {
     //1 ContentProvider's name : typically package name
     public static final String AUTHORITY =
-            "com.example.hyunyoungpark.addressbookdemo.data";
+            "com.example.hyunyoungpark.addressbookdemo.Data";
 
     //2 base URI to interact with ContentProvider
     public  static final Uri BASE_CONTENT_URI =

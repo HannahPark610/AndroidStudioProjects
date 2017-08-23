@@ -15,7 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.example.hyunyoungpark.addressbookdemo.data.DatabaseDescription;
+import com.example.hyunyoungpark.addressbookdemo.Data.DatabaseDescription;
 
 public class ContactsFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<Cursor> {

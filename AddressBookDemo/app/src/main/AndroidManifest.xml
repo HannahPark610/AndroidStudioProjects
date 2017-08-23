@@ -20,8 +20,8 @@
             </intent-filter>
         </activity>
         <provider
-            android:authorities="com.ciccc_cirac.addressbookdemo.data"
-            android:name=".data.AddressBookContentProvider"
+            android:authorities="com.example.hyunyoungpark.addressbookdemo.Data"
+            android:name=".Data.AddressBookContentProvider"
             android:enabled="true">
 
         </provider>

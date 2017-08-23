@@ -7,7 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.hyunyoungpark.addressbookdemo.data.DatabaseDescription;
+import com.example.hyunyoungpark.addressbookdemo.Data.DatabaseDescription;
 
 
 public class ContactAdapter extends
