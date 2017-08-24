@@ -52,6 +52,7 @@ public class AddEditFragment extends Fragment
     private TextInputLayout zipTextInput;
     private FloatingActionButton saveContactFAB;
 
+    private boolean addingNewContact = true;
     //create a View for Fragment
 
 
@@ -82,6 +83,17 @@ public class AddEditFragment extends Fragment
         saveContactFAB = (FloatingActionButton) view.findViewById(
                 R.id.saveFloatingActionButton);
         saveContactFAB.setOnClickListener(saveDataListner);
+
+        Bundle argument = getArguments();
+        if(argument != null)
+        {
+            addingNewContact = false;
+            contactUri = argument.getParcelable(MainActivity.CONTACT_URI);
+        }
+        if(contactUri != null)
+        {
+            getLoaderManager().initLoader(CONTACT_LOADER, null, this);
+        }
         return view;
     }
 
@@ -96,30 +108,43 @@ public class AddEditFragment extends Fragment
 
     //saveContact() saves information into database
     // insert() : requires ContentVAlue
-    private void saveContact()
-    {
+    private void saveContact() {
         ContentValues contentValues =
                 new ContentValues();
         contentValues.put(DatabaseDescription.Contact.COLUMN_NAME,
-                nameTextInput.getEditText().getText().toString() );
+                nameTextInput.getEditText().getText().toString());
         contentValues.put(DatabaseDescription.Contact.COLUMN_PHONE,
                 phoneTextInput.getEditText().getText().toString());
         //Complete for all remaining column
 
-        // you need a URI
-        // this Uri is used yo call contentResolver
-        // insert the data into addressBook Content
-        Uri newContactUri = getActivity().
-                getContentResolver()
-                .insert(DatabaseDescription.Contact.CONTENT_URI
-                        ,contentValues);
-        Toast.makeText(getActivity(),"Data inserted Succesfully",
-                Toast.LENGTH_SHORT).show();
-        //Change the Toast to SnackBar
-        //SnackBar = notification feedback to the user
-        // and you add actions to snackBar like undo, cancel, ok
+        if (addingNewContact) {
 
-        addEditFragmentInterface.onAddEditComplete(newContactUri);
+            // you need a URI
+            // this Uri is used yo call contentResolver
+            // insert the data into addressBook Content
+            Uri newContactUri = getActivity().
+                    getContentResolver()
+                    .insert(DatabaseDescription.Contact.CONTENT_URI
+                            , contentValues);
+            Toast.makeText(getActivity(), "Data inserted Succesfully",
+                    Toast.LENGTH_SHORT).show();
+            //Change the Toast to SnackBar
+            //SnackBar = notification feedback to the user
+            // and you add actions to snackBar like undo, cancel, ok
+
+            addEditFragmentInterface.onAddEditComplete(newContactUri);
+        } else {
+            int updatedRows = getActivity().getContentResolver().update(
+                    contactUri, contentValues, null, null);
+
+            if (updatedRows > 0) {
+                Toast.makeText(getContext(), R.string.contact_updated, Toast.LENGTH_SHORT).show();
+                addEditFragmentInterface.onAddEditComplete(contactUri);
+
+            } else {
+                Toast.makeText(getContext(), R.string.contact_not_updated, Toast.LENGTH_SHORT).show();
+            }
+        }
     }
 
     @Override

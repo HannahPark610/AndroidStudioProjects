@@ -5,10 +5,11 @@ import android.os.Bundle;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 
 public class MainActivity extends AppCompatActivity
         implements ContactsFragment.ContactFragmentInterface,
-        AddEditFragment.AddEditFragmentInterface
+        AddEditFragment.AddEditFragmentInterface, DetailFragment.DetailFragmentInterface
 {
     private ContactsFragment contactsFragment;
     public static final String CONTACT_URI = "contact_uri";
@@ -36,6 +37,13 @@ public class MainActivity extends AppCompatActivity
     {
         AddEditFragment addEditFragment =
                 new AddEditFragment();
+
+        if (contacturi != null)
+        {
+            Bundle argument = new Bundle();
+            argument.putParcelable(CONTACT_URI, contacturi);
+            addEditFragment.setArguments(argument);
+        }
         // Create the fragment using FragmentTransaction
         FragmentTransaction fragmentTransaction =
                 getSupportFragmentManager()
@@ -67,6 +75,7 @@ public class MainActivity extends AppCompatActivity
         //create a bundle object that will pass selected
         // row uri to detailFragment
         Bundle bundle = new Bundle();
+        Log.d("uri", uri.toString());
         bundle.putParcelable(CONTACT_URI,uri);
         detailFragment.setArguments(bundle);
     }
@@ -78,5 +87,16 @@ public class MainActivity extends AppCompatActivity
     }
 
 
+    @Override
+    public void onEditContact(Uri uri) {
+        displayAddEditFragment(R.id.fragmentContainer, uri);
 
+    }
+
+    @Override
+    public void onContactDeleted() {
+
+
+
+    }
 }

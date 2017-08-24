@@ -1,5 +1,6 @@
 package com.example.hyunyoungpark.addressbookdemo;
 
+import android.content.Context;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.Bundle;
@@ -8,7 +9,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -19,6 +24,12 @@ import com.example.hyunyoungpark.addressbookdemo.Data.DatabaseDescription;
 public class DetailFragment extends Fragment
         implements LoaderManager.LoaderCallbacks<Cursor>
 {
+    public interface DetailFragmentInterface {
+        //2 method for Edit & Delete
+        void onEditContact(Uri uri);
+        void onContactDeleted();
+    }
+    public DetailFragmentInterface detailFragmentInterface;
     //create an ID for loader
     private static  final int CONTACT_LOADER =0;
     //uri of selected contact
@@ -56,10 +67,44 @@ public class DetailFragment extends Fragment
         Bundle arg = getArguments();
         contactUri = arg.getParcelable(
                 MainActivity.CONTACT_URI);
+        Log.d("Detailed uri", contactUri.toString());
+        getLoaderManager().initLoader(CONTACT_LOADER, null, this);
         return view;
 
     }
 
+    @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        detailFragmentInterface = (DetailFragmentInterface) context;
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        detailFragmentInterface = null;
+
+    }
+
+    @Override
+    public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.fragment_details_menu, menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        switch (item.getItemId())
+        {
+            case R.id.action_edit :
+                detailFragmentInterface.onEditContact(contactUri);
+                return true;
+            case R.id.action_delete :
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     //this method is called by Lodermanager to create a loader
     @Override
@@ -99,6 +144,8 @@ public class DetailFragment extends Fragment
             cityTextView.setText(data.getString(cityIndex));
             stateTextView.setText(data.getString(stateIndex));
             zipTextView.setText(data.getString(zipIndex));
+            Log.d("detail name I", String.valueOf(nameIndex));
+            Log.d("detail name v", data.getString(nameIndex));
         }
     }
 
