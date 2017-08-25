@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">NotificationDemo</string>
+    <string name="title"> Charging </string>
+    <string name="content">There is never better time
+    to drink water when you know
+    your phone is charging. Drink up!!!</string>
+</resources>
