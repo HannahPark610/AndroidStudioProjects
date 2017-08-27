@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "503652532736",
+    "firebase_url": "https://myfavoriterestaurantmidterm.firebaseio.com",
+    "project_id": "myfavoriterestaurantmidterm",
+    "storage_bucket": "myfavoriterestaurantmidterm.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:503652532736:android:545d11be3e069178",
+        "android_client_info": {
+          "package_name": "com.example.hyunyoungpark.myfavoriterestaurant_midterm"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "503652532736-oip839pflsoff7nr12hunihfpa3v748v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.hyunyoungpark.myfavoriterestaurant_midterm",
+            "certificate_hash": "44778624a6089f1a59819478e0df90a1c9f4b2d4"
+          }
+        },
+        {
+          "client_id": "503652532736-kfiv96i7k5klv7bb6oj1bgp7ntkh392l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpvm6KlED-iaR97ZwcQbuTAHHotemxQP8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "503652532736-kfiv96i7k5klv7bb6oj1bgp7ntkh392l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

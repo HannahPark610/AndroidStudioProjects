@@ -2,14 +2,11 @@ package com.example.hyunyoungpark.myfavoriterestaurant_midterm;
 
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import static android.content.Intent.ACTION_DIAL;
 
 public class MainActivity3 extends AppCompatActivity {
 
@@ -45,9 +42,9 @@ public class MainActivity3 extends AppCompatActivity {
     private void setInfo(Store store) {
 
         txtname.setText(store.name);
-        tvmenu1.setText(store.menu[0]);
-        tvmenu2.setText(store.menu[1]);
-        tvmenu3.setText(store.menu[2]);
+        tvmenu1.setText(store.menu.get(0));
+        tvmenu2.setText(store.menu.get(1));
+        tvmenu3.setText(store.menu.get(2));
         tvtel.setText(store.tel);
         tvURL.setText(store.homepage);
         tvRegdate.setText(store.date_regist);

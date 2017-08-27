@@ -3,22 +3,32 @@ package com.example.hyunyoungpark.myfavoriterestaurant_midterm;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import com.google.firebase.database.Exclude;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 public class Store implements Parcelable {
-    String name;
-    String tel;
-    String [] menu;
-    String homepage;
-    String date_regist;
-    int num_category;
+    String[] dummy = {"", "", ""};
+    public String name;
+    public String tel;
+    public List<String> menu = Arrays.asList(dummy);
+    public String homepage;
+    public String date_regist;
+    public int num_category;
 
-    public Store(String name, String tel, String menu1, String menu2, String menu3, String homepage ,int num_category, String date_regist){
-        menu = new String[3];
+    public Store() {
+    }
+
+    public Store(String name, String tel, String menu1, String menu2, String menu3, String homepage , int num_category, String date_regist){
         this.name = name;
         this.tel = tel;
-        this.menu[0] = menu1;
-        this.menu[1] = menu2;
-        this.menu[2] = menu3;
+        this.menu.set(0, menu1);
+        this.menu.set(1, menu2);
+        this.menu.set(2, menu3);
         this.homepage = homepage;
         this.num_category = num_category;
         this.date_regist = date_regist;
@@ -27,7 +37,7 @@ public class Store implements Parcelable {
     protected Store(Parcel in) {
         name = in.readString();
         tel = in.readString();
-        menu = in.createStringArray();
+        menu = in.createStringArrayList();
         homepage = in.readString();
         date_regist = in.readString();
         num_category = in.readInt();
@@ -54,9 +64,23 @@ public class Store implements Parcelable {
     public void writeToParcel(Parcel parcel, int i) {
         parcel.writeString(name);
         parcel.writeString(tel);
-        parcel.writeStringArray(menu);
+        parcel.writeStringList(menu);
         parcel.writeString(homepage);
         parcel.writeString(date_regist);
         parcel.writeInt(num_category);
+    }
+
+
+    @Exclude
+    public Map<String, Object> toMap() {
+        HashMap<String, Object> result = new HashMap<>();
+        result.put("name", name);
+        result.put("tel", tel);
+        result.put("menu", menu);
+        result.put("homepage", homepage);
+        result.put("date_regist", date_regist);
+        result.put("num_category", num_category);
+
+        return result;
     }
 }

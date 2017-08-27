@@ -16,6 +16,12 @@
 #   public *;
 #}
 
+-keepattributes Signature
+
+-keepclassmembers class com.example.hyunyoungpark.myfavoriterestaurant_midterm.** {
+ *;
+ }
+
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
