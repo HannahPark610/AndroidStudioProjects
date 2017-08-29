@@ -92,6 +92,6 @@ public class MainActivity1 extends AppCompatActivity {
     protected void onStop() {
         super.onStop();
         profileTracker.stopTracking();
-        tokenTracker.get
+        tokenTracker.stopTracking();
     }
 }

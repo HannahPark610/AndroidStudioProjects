@@ -34,23 +34,25 @@ public class UserProfile extends AppCompatActivity {
     public void onCreate(@Nullable Bundle savedInstanceState, @Nullable PersistableBundle persistentState) {
         super.onCreate(savedInstanceState, persistentState);
         setContentView(R.layout.activity_userprofile);
-        name = (TextView)findViewById(R.id.txt_name);
-        logout = (Button)findViewById(R.id.btn_logout);
+        name = (TextView) findViewById(R.id.txt_name);
+        logout = (Button) findViewById(R.id.btn_logout);
         shareDialog = new ShareDialog(this);
         Bundle bundle = getIntent().getExtras();
         String firstname = bundle.get("name").toString();
         String lastname = bundle.get("surname").toString();
         String imgUrl = bundle.get("imageUrl").toString();
-        name.setText(" "+firstname + " "+lastname);
-        new DownloadImage((ImageView)findViewById(R.id.img_profile)).execute(imgUrl);
-        logout.setOnClickListener(new View.OnClickListener())
+        name.setText(" " + firstname + " " + lastname);
+        new DownloadImage((ImageView) findViewById(R.id.img_profile)).execute(imgUrl);
+        logout.setOnClickListener(new View.OnClickListener() {
 
-        @Override
-                public void onClick(View v) {
-            LoginManager.getInstance().logOut();
-            Intent login = new Intent(UserProfile.this,MainActivity1)
-                    startActivity
-        }
+            @Override
+            public void onClick(View v) {
+                LoginManager.getInstance().logOut();
+                Intent login = new Intent(UserProfile.this, MainActivity1.class);
+                startActivity(login);
+                finish();
+            }
+        });
     }
 
     //code for downloading image from facebook
