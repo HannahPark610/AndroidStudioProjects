@@ -21,6 +21,8 @@ public class FireBaseHelper {
     }
 
     public static void add(Store store) {
-        getDatabaseReference().setValue(store);
+
+        getDatabaseReference().push().setValue(store);
+        // getDatabaseReference().setValue(store);
     }
 }

@@ -41,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Store store = dataSnapshot.getValue(Store.class);
                 data_store.add(store);
-                data_name.add(store.name);
+              //  data_name.add(store.name);
                 tv.setText("Restaurants List (" + data_store.size() + ")");
                 adapter.notifyDataSetChanged();
             }
@@ -56,6 +56,9 @@ public class MainActivity extends AppCompatActivity {
 
         lv = (ListView)findViewById(R.id.listview);
         tv = (TextView)findViewById(R.id.tv);
+        //read data from database just store name
+        //add the store name in arraylist data_name
+        // assign arraylist to adapter
         tv.setText("Restaurants List (0)");
         adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,data_name);
         lv.setAdapter(adapter);
@@ -83,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         if(requestCode == _REQ){
             if(resultCode ==  RESULT_STORE){
                 Store store = data_.getParcelableExtra("store");
+                //FireBaseHelper.add(store);
                 FireBaseHelper.add(store);
 //                data_store.add(store);
 //                data_name.add(store.name);
