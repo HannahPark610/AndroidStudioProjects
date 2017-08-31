@@ -23,6 +23,10 @@ public class Store implements Parcelable {
     public Store() {
     }
 
+    public String getName() {
+        return name;
+    }
+
     public Store(String name, String tel, String menu1, String menu2, String menu3, String homepage , int num_category, String date_regist){
         this.name = name;
         this.tel = tel;
