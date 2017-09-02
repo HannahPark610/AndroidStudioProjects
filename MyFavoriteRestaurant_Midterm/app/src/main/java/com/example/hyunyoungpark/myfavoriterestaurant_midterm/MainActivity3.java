@@ -5,13 +5,16 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class MainActivity3 extends AppCompatActivity {
 
     TextView txtname, tvmenu1,tvmenu2, tvmenu3, tvtel, tvURL, tvRegdate;
-    ImageView imgno, imgURL, imgCall;
+    ImageView imgno;
+    Button imgURL;
+    Button imgCall;
     Intent intent;
     Store store;
 
@@ -35,8 +38,8 @@ public class MainActivity3 extends AppCompatActivity {
         tvURL = (TextView)findViewById(R.id.tvURL);
         tvRegdate = (TextView)findViewById(R.id.tvRegdate);
         imgno = (ImageView)findViewById(R.id.imgno);
-        imgCall =(ImageView)findViewById(R.id.imgCall);
-        imgURL =(ImageView)findViewById(R.id.imgURL);
+        imgCall =(Button) findViewById(R.id.imgCall);
+        imgURL =(Button)findViewById(R.id.imgURL);
     }
 
     private void setInfo(Store store) {
