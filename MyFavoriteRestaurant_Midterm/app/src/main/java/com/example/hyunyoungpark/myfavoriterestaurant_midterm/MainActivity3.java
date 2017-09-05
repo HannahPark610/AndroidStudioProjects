@@ -5,7 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -13,8 +13,7 @@ public class MainActivity3 extends AppCompatActivity {
 
     TextView txtname, tvmenu1,tvmenu2, tvmenu3, tvtel, tvURL, tvRegdate;
     ImageView imgno;
-    Button imgURL;
-    Button imgCall;
+    ImageButton imgCall, imgURL;
     Intent intent;
     Store store;
 
@@ -38,8 +37,8 @@ public class MainActivity3 extends AppCompatActivity {
         tvURL = (TextView)findViewById(R.id.tvURL);
         tvRegdate = (TextView)findViewById(R.id.tvRegdate);
         imgno = (ImageView)findViewById(R.id.imgno);
-        imgCall =(Button) findViewById(R.id.imgCall);
-        imgURL =(Button)findViewById(R.id.imgURL);
+        imgCall =(ImageButton)findViewById(R.id.image_call);
+        imgURL =(ImageButton)findViewById(R.id.image_info);
     }
 
     private void setInfo(Store store) {
@@ -71,11 +70,11 @@ public class MainActivity3 extends AppCompatActivity {
         Store store = intent.getParcelableExtra("store_main3");
 
         switch (v.getId()){
-            case R.id.imgCall:
+            case R.id.image_call:
                 Intent intent2 = new Intent(Intent.ACTION_DIAL, Uri.parse("tel:/" + store.tel));
                 startActivity(intent2);
                 break;
-            case R.id.imgURL:
+            case R.id.image_info:
                 Intent intent3 = new Intent(Intent.ACTION_VIEW, Uri.parse(store.homepage));
                 startActivity(intent3);
                 break;

@@ -8,4 +8,16 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="RaisedButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorPrimary</item>
+        <item name="colorButtonNormal">@color/colorAccent</item>
+    </style>
+    
+    <style name="FlatButton" parent="Theme.AppCompat.Light">
+        <item name="colorControlHighlight">@color/colorAccent</item>
+    </style>
+    <style name="FloatingButton" parent="Theme.AppCompat.Light">
+        <item name="colorAccent"> @color/colorAccent</item>
+    </style>
+
 </resources>
