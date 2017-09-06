@@ -9,7 +9,7 @@ import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity3 extends AppCompatActivity {
+public class MainActivity3 extends AppCompatActivity implements View.OnClickListener {
 
     TextView txtname, tvmenu1,tvmenu2, tvmenu3, tvtel, tvURL, tvRegdate;
     ImageView imgno;
@@ -39,6 +39,8 @@ public class MainActivity3 extends AppCompatActivity {
         imgno = (ImageView)findViewById(R.id.imgno);
         imgCall =(ImageButton)findViewById(R.id.image_call);
         imgURL =(ImageButton)findViewById(R.id.image_info);
+        imgCall.setOnClickListener(this);
+        imgURL.setOnClickListener(this);
     }
 
     private void setInfo(Store store) {
