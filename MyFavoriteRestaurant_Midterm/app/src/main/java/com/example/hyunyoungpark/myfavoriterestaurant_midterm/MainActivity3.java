@@ -54,6 +54,9 @@ public class MainActivity3 extends AppCompatActivity {
         switch (store.num_category){
             case 1:
                 imgno.setImageResource(R.drawable.chicken);
+                imgno.setMaxHeight(100);
+                imgno.setMaxWidth(100);
+                imgno.setScaleType(ImageView.ScaleType.FIT_XY);
                 break;
             case 2:
                 imgno.setImageResource(R.drawable.pizza);

@@ -52,8 +52,8 @@
 
             <ImageView
                 android:id="@+id/imgno"
-                android:layout_width="50dp"
-                android:layout_height="68dp"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
                 android:layout_weight="1"
                 android:src="@drawable/chicken" />
 

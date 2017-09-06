@@ -41,15 +41,22 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
 
-
 //  need setExtra here
 //    https://stackoverflow.com/questions/5265913/how-to-use-putextra-and-getextra-for-string-data
+                emptyListView();
+                Iterable<DataSnapshot> children = dataSnapshot.getChildren();
 
-                Store store = dataSnapshot.getValue(Store.class);
-                data_store.add(store);
+                for (DataSnapshot snapshot : children) {
+                    Store store = snapshot.getValue(Store.class);
+                    data_store.add(store);
+                    data_name.add(store.getName());
+                }
+//                Store store = dataSnapshot.getValue(Store.class);
+//                data_store.add(store);
 //                    String rname = String.valueOf(store.getName());
 //                    data_name.add(rname);
              //   tv.setText("Restaurants List (" + data_store.size() + ")");
+                setListView();
                 adapter.notifyDataSetChanged();
             }
 
@@ -60,30 +67,16 @@ public class MainActivity extends AppCompatActivity {
         });
     }
 
+    private void emptyListView() {
+        data_store.clear();
+        data_name.clear();
+    }
+
     public void setListView() {
 
         lv = (ListView) findViewById(R.id.listview);
         tv = (TextView) findViewById(R.id.tv);
-        FireBaseHelper.getDatabaseReference().addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                Store store = dataSnapshot.getValue(Store.class);
-                data_store.add(store);
-                for (DataSnapshot ds : dataSnapshot.getChildren()) {
-                    String rname = (String) ds.child("name").getValue();
-                    if (!data_name.contains(rname)) {
-                        data_name.add(rname);
-                    }
-                }
-                tv.setText("Restaurants List (" + data_store.size() + ")");
-                adapter.notifyDataSetChanged();
-            }
 
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
         //read data from database just store name
         //add the store name in arraylist data_name
         // assign arraylist to adapter.
