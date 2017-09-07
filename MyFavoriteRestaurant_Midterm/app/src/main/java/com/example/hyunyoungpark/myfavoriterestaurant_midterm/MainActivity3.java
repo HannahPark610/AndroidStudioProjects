@@ -62,9 +62,15 @@ public class MainActivity3 extends AppCompatActivity implements View.OnClickList
                 break;
             case 2:
                 imgno.setImageResource(R.drawable.pizza);
+                imgno.setMaxHeight(100);
+                imgno.setMaxWidth(100);
+                imgno.setScaleType(ImageView.ScaleType.FIT_XY);
                 break;
             case 3:
                 imgno.setImageResource(R.drawable.pasta);
+                imgno.setMaxHeight(100);
+                imgno.setMaxWidth(100);
+                imgno.setScaleType(ImageView.ScaleType.FIT_XY);
                 break;
         }
     }
