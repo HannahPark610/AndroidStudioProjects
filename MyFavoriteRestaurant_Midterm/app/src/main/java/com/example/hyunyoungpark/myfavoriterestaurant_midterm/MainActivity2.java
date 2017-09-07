@@ -70,6 +70,7 @@ public class MainActivity2 extends AppCompatActivity {
         finish();
 
     }
+
     private String date(){
         long now = System.currentTimeMillis();
         Date date_ = new Date(now);
