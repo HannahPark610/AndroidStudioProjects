@@ -13,7 +13,7 @@
     android:weightSum="1">
 
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="330dp"
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:layout_span="2"
@@ -29,11 +29,11 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
         android:layout_marginRight="20dp"
-        android:layout_weight="0.59"
+        android:layout_marginBottom="20dp"
+        android:layout_weight="1"
         android:background="#ddfef8f8">
 
         <TableRow
-            android:layout_marginTop="20dp"
             android:padding="3dp">
 
             <TextView
@@ -43,7 +43,7 @@
                 android:layout_span="2"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="name"
+                android:text="Name"
                 android:textSize="18dp"
                 android:textStyle="bold" />
         </TableRow>
@@ -72,7 +72,7 @@
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
                     android:padding="3dp"
-                    android:text="MENU1" />
+                    android:text="Menu1" />
 
                 <TextView
                     android:id="@+id/tvmenu2"
@@ -80,7 +80,7 @@
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
                     android:padding="3dp"
-                    android:text="MENU2" />
+                    android:text="Menu2" />
 
                 <TextView
                     android:id="@+id/tvmenu3"
@@ -88,7 +88,7 @@
                     android:layout_height="wrap_content"
                     android:background="#ffffff"
                     android:padding="3dp"
-                    android:text="MENU3" />
+                    android:text="Menu3" />
             </LinearLayout>
         </TableRow>
 
@@ -103,7 +103,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="13dp"
-                android:text="PHONE:"
+                android:text="Phone:"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
@@ -133,7 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:layout_marginTop="13dp"
-                android:text="HOMEPAGE:"
+                android:text="Homepage:"
                 android:textSize="15dp"
                 android:textStyle="bold" />
 
@@ -181,10 +181,17 @@
 
         <Button
             android:id="@+id/btnback"
-            android:layout_width="wrap_content"
+            android:layout_width="330dp"
             android:layout_height="wrap_content"
+            android:layout_span="2"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@color/button"
+            android:textColor="#fff"
+            android:textStyle="bold"
             android:onClick="onClick"
-            android:text="Back" />
+            android:text="Back"
+            android:layout_marginBottom="5dp" />
     </LinearLayout>
 
 </LinearLayout>

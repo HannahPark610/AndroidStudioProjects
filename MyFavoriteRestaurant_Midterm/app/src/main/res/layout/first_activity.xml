@@ -77,11 +77,16 @@
 
     <Button
         android:id="@+id/startButton"
-        android:layout_width="wrap_content"
+        android:textColor="#fff"
+        android:fontFamily="sans-serif-condensed"
+        android:textStyle="bold"
+        android:layout_alignParentBottom="true"
+        android:background="@color/button"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="80dp"
         android:text="START" />
 
 
