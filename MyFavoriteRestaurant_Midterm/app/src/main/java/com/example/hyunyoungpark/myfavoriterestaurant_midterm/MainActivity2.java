@@ -1,8 +1,8 @@
 package com.example.hyunyoungpark.myfavoriterestaurant_midterm;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
@@ -14,6 +14,7 @@ public class MainActivity2 extends AppCompatActivity {
 
     final int RESULT_STORE = 0;
     final int RESULT_CANCELED = 50;
+   // final int requestCode = 100;
 
     RadioButton radio1, radio2, radio3;
     EditText etname, ettel, etmenu1, etmenu2, etmenu3, ethomepage;
@@ -40,10 +41,14 @@ public class MainActivity2 extends AppCompatActivity {
             add();
         }
         else if(v.getId() == R.id.btnCancel){
+            //intent = new Intent(MainActivity2.this, MainActivity.class);
             setResult(RESULT_CANCELED, intent);
             finish();
+            //startActivity(intent);
         }
     }
+
+
 
     private void add() {
         intent = new Intent(MainActivity2.this, MainActivity.class);
@@ -65,9 +70,12 @@ public class MainActivity2 extends AppCompatActivity {
                     , etmenu3.getText().toString(), ethomepage.getText().toString(), 3, date);
 
         }
+        //Intent intent = getIntent();
         intent.putExtra("store", store);
         setResult(RESULT_STORE, intent);
         finish();
+        //startActivity(intent);
+        //finish();
 
     }
 

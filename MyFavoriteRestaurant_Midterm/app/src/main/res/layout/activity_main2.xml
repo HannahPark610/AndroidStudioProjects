@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="10dp"
         android:layout_span="2"
-        android:background="#00ACC1"
+        android:background="#E46E67"
         android:gravity="center"
         android:padding="20dp"
         android:text="Enter Information"
@@ -228,15 +228,16 @@
         android:id="@+id/relativeLayout1"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:background="@android:color/white" >
+        android:background="#ffffff" >
 
         <Button
             android:id="@+id/btnCancel"
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
+            android:layout_alignParentBottom="true"
             android:background="@color/button"
-            android:textColor="#fff"
+            android:textColor="#E46E67"
             android:textStyle="bold"
             android:onClick="onClick"
             android:text="Cancel"
@@ -247,8 +248,9 @@
             android:layout_width="180dp"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
             android:background="@color/button"
-            android:textColor="#fff"
+            android:textColor="#E46E67"
             android:textStyle="bold"
             android:onClick="onClick"
             android:text="Add"

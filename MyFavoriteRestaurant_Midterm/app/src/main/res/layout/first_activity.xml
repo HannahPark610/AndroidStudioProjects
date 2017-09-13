@@ -10,7 +10,7 @@
         android:id="@+id/foodlogo"
         android:layout_width="200dp"
         android:layout_height="200dp"
-        android:background="@drawable/logo_design"
+        android:background="@drawable/logo_pink"
         android:layout_marginTop="79dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true">
@@ -31,9 +31,9 @@
         android:gravity="center_horizontal"
         android:text="MY"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="10pt"
+        android:textSize="12pt"
         android:minWidth="110sp"
-        android:textColor="#00ACC1"
+        android:textColor="#A7A496"
         android:textStyle="bold"
         android:layout_below="@+id/textemty"
         android:layout_alignLeft="@+id/foodlogo"
@@ -48,9 +48,9 @@
         android:gravity="center_horizontal"
         android:text="FAVORITE"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="10pt"
+        android:textSize="12pt"
         android:minWidth="110sp"
-        android:textColor="#00ACC1"
+        android:textColor="#A7A496"
         android:textStyle="bold"
         android:layout_below="@+id/textView1"
         android:layout_alignLeft="@+id/textView1"
@@ -65,9 +65,9 @@
         android:gravity="center_horizontal"
         android:text="RESTAURANTS"
         android:fontFamily="sans-serif-condensed"
-        android:textSize="10pt"
+        android:textSize="12pt"
         android:minWidth="110sp"
-        android:textColor="#00ACC1"
+        android:textColor="#A7A496"
         android:textStyle="bold"
         android:layout_below="@+id/textView2"
         android:layout_alignLeft="@+id/textView2"
@@ -77,7 +77,7 @@
 
     <Button
         android:id="@+id/startButton"
-        android:textColor="#fff"
+        android:textColor="#E46E67"
         android:fontFamily="sans-serif-condensed"
         android:textStyle="bold"
         android:layout_alignParentBottom="true"
@@ -86,7 +86,7 @@
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView3"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="60dp"
         android:text="START" />
 
 

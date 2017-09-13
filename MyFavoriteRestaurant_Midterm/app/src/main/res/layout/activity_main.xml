@@ -12,8 +12,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#00ACC1"
-        android:padding="5dp">
+        android:background="#E46E67"
+        android:padding="5dp" >
 
         <TextView
             android:id="@+id/tv"
@@ -37,7 +37,7 @@
             android:onClick="onClick"
             android:text="ADD"
             android:fontFamily="sans-serif-condensed"
-            android:textColor="#fff" />
+            android:textColor="#E46E67" />
     </LinearLayout>
 
     <ListView

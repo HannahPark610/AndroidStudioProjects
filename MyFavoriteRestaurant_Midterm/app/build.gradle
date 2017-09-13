@@ -5,7 +5,7 @@ android {
     buildToolsVersion "26.0.0"
     defaultConfig {
         applicationId "com.example.hyunyoungpark.myfavoriterestaurant_midterm"
-        minSdkVersion 21
+        minSdkVersion 16
         targetSdkVersion 26
         versionCode 1
         versionName "1.0"
@@ -41,13 +41,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    //    compile 'com.google.firebase:firebase-core:11.2.0'
-    //    compile 'com.google.firebase:firebase-database:11.2.0'
-    //    compile (
-    //            [group: 'com.fasterxml.jackson.core', name: 'jackson-core', version: '2.4.1'],
-    //            [group: 'com.fasterxml.jackson.core', name: 'jackson-annotations', version: '2.4.1'],
-    //            [group: 'com.fasterxml.jackson.core', name: 'jackson-databind', version: '2.4.1']
-    //    )
     compile 'com.android.support:appcompat-v7:26.+'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile 'com.google.firebase:firebase-database:10.0.1'

@@ -17,10 +17,11 @@
         android:layout_height="wrap_content"
         android:layout_margin="30dp"
         android:layout_span="2"
-        android:background="#00ACC1"
+        android:background="#E46E67"
         android:gravity="center"
         android:padding="10dp"
         android:text="Restaurant Information"
+        android:textStyle="bold"
         android:textColor="#ffffff"
         android:textSize="20dp" />
 
@@ -70,7 +71,6 @@
                     android:id="@+id/tvmenu1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
                     android:padding="3dp"
                     android:text="Menu1" />
 
@@ -78,7 +78,6 @@
                     android:id="@+id/tvmenu2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
                     android:padding="3dp"
                     android:text="Menu2" />
 
@@ -86,7 +85,6 @@
                     android:id="@+id/tvmenu3"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:background="#ffffff"
                     android:padding="3dp"
                     android:text="Menu3" />
             </LinearLayout>
@@ -113,10 +111,9 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginTop="12dp"
-                android:background="#ffffff"
                 android:padding="3dp"
                 android:text="phone number"
-                android:textColor="#ff0000" />
+                android:textColor="#E46E67" />
 
             <ImageButton
                 android:id="@+id/image_call"
@@ -143,10 +140,10 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
                 android:layout_marginTop="12dp"
-                android:background="#ffffff"
                 android:padding="3dp"
                 android:text="homepage"
-                android:textColor="#00ACC1" />
+                android:textColor="#E46E67"
+                />
 
             <ImageButton
                 android:id="@+id/image_info"
@@ -187,7 +184,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@color/button"
-            android:textColor="#fff"
+            android:textColor="#E46E67"
             android:textStyle="bold"
             android:onClick="onClick"
             android:text="Back"

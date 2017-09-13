@@ -125,4 +125,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+//
+//    @Override
+//    protected void onActivityResult(int requestCode, int resultCode, Intent data_) {
+//        Log.d("code ", " req= "+requestCode+" res = "+resultCode);
+//        super.onActivityResult(requestCode, resultCode, data_);
+//        if (requestCode == _REQ) {
+//            Log.d("code 1", " req= "+requestCode+" res = "+resultCode);
+//            if (resultCode == RESULT_STORE) {
+//                Log.d("code 2", " req= "+requestCode+" res = "+resultCode);
+//                Store store = data_.getParcelableExtra("store");
+//                //FireBaseHelper.add(store);
+//                FireBaseHelper.add(store);
+////                data_store.add(store);
+////                data_name.add(store.name);
+//                adapter.notifyDataSetChanged();
+//            } else if (resultCode == RESULT_CANCLED) {
+//
+//            }
+//        }
+//    }
+
+
 }
